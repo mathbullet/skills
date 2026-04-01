@@ -1,0 +1,31 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "mathbullet"
+  },
+  "metadata": {
+    "description": "Claude Code plugins by mathbullet"
+  },
+  "plugins": [
+    {
+      "name": "research",
+      "source": "./plugins/research",
+      "description": "Multi-source investigation skill that collects papers, articles, and community discussions into an indexed Markdown report",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "paper-review",
+      "source": "./plugins/paper-review",
+      "description": "Create detailed paper reviews in Markdown with proper citations, LaTeX equations, and structured sections following the original paper",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "paper-review",
+  "description": "Create detailed paper reviews in Markdown with proper citations, LaTeX equations, and structured sections following the original paper",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}
