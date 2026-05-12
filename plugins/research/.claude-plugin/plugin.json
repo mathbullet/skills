@@ -1,8 +1,0 @@
-{
-  "name": "research",
-  "description": "Multi-source investigation skill that collects papers, articles, and community discussions into an indexed Markdown report",
-  "version": "1.0.0",
-  "author": {
-    "name": "mathbullet"
-  }
-}

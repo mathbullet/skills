@@ -1,0 +1,8 @@
+{
+  "name": "explain",
+  "description": "Conventions for writing a Markdown explainer of a concept or system. Term list up front in table form, Mermaid for diagrams, explicit subjects and verbs, no glossed-over hops, and a fixed structure (terms → background → mechanism → procedure → current state).",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}

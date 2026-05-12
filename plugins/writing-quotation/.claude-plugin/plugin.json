@@ -1,0 +1,8 @@
+{
+  "name": "writing-quotation",
+  "description": "Formatting rules for quoting external sources inside a Markdown document. Quotations always live in code blocks (never `>`), original and translation sit together, the source reference goes on the line after the fence, and bare numeric references are forbidden.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}

@@ -4,13 +4,13 @@
     "name": "mathbullet"
   },
   "metadata": {
-    "description": "Claude Code plugins by mathbullet"
+    "description": "Claude Code skills by mathbullet"
   },
   "plugins": [
     {
-      "name": "research",
-      "source": "./plugins/research",
-      "description": "Multi-source investigation skill that collects papers, articles, and community discussions into an indexed Markdown report",
+      "name": "writing-quotation",
+      "source": "./plugins/writing-quotation",
+      "description": "Formatting rules for quoting external sources inside a Markdown document. Quotations always live in code blocks (never `>`), original and translation sit together, the source reference goes on the line after the fence, and bare numeric references are forbidden.",
       "version": "1.0.0",
       "author": {
         "name": "mathbullet"
@@ -18,9 +18,49 @@
       "license": "MIT"
     },
     {
-      "name": "paper-review",
-      "source": "./plugins/paper-review",
-      "description": "Create detailed paper reviews in Markdown with proper citations, LaTeX equations, and structured sections following the original paper",
+      "name": "documenting-with-sources",
+      "source": "./plugins/documenting-with-sources",
+      "description": "Common conventions for writing Markdown documents that cite outside sources. Defines mandatory citations, in-text reference format, separation of quotation from prose, the ban on fabricated associations, and the source-list format. Used by survey, paper-details, and other sourced-writing skills.",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "survey",
+      "source": "./plugins/survey",
+      "description": "Multi-source investigation skill that collects papers, articles, social-media posts, and industry signals on a topic into an indexed Markdown report. Includes sub-agent parallelism, Assertion-Evidence prose ordering, table-of-contents requirements, and an output convention. Depends on documenting-with-sources and writing-quotation.",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "paper-details",
+      "source": "./plugins/paper-details",
+      "description": "Produce a faithful detailed explainer of an academic paper as a Markdown document. Section structure mirrors the paper, equations render as LaTeX with explicit variable definitions, citations to the paper under review use position only, citations to other works use author-short form. The skill is for description, not critical review. Depends on documenting-with-sources and writing-quotation.",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "explain",
+      "source": "./plugins/explain",
+      "description": "Conventions for writing a Markdown explainer of a concept or system. Term list up front in table form, Mermaid for diagrams, explicit subjects and verbs, no glossed-over hops, and a fixed structure (terms / background / mechanism / procedure / current state).",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "explain-via-html",
+      "source": "./plugins/explain-via-html",
+      "description": "Author an explainer as a self-contained single-page HTML file instead of a wall of Markdown prose. References thariqs.github.io/html-effectiveness as a working library of formats (concept explainers, comparison sheets, flowcharts, sandboxes, ...), and pins down a sidebar terms list, inline SVG figures, an opinionated style preset, and an html-expl/ output convention.",
       "version": "1.0.0",
       "author": {
         "name": "mathbullet"

@@ -1,0 +1,8 @@
+{
+  "name": "survey",
+  "description": "Multi-source investigation skill that collects papers, articles, social-media posts, and industry signals on a topic into an indexed Markdown report. Includes sub-agent parallelism, Assertion-Evidence prose ordering, table-of-contents requirements, and an output convention. Depends on documenting-with-sources and writing-quotation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}

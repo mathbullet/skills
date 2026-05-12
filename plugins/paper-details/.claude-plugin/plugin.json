@@ -1,0 +1,8 @@
+{
+  "name": "paper-details",
+  "description": "Produce a faithful detailed explainer of an academic paper as a Markdown document. Section structure mirrors the paper, equations render as LaTeX with explicit variable definitions, citations to the paper under review use position only, citations to other works use author-short form. The skill is for description, not critical review. Depends on documenting-with-sources and writing-quotation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}

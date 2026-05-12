@@ -1,0 +1,8 @@
+{
+  "name": "documenting-with-sources",
+  "description": "Common conventions for writing Markdown documents that cite outside sources. Defines mandatory citations, in-text reference format, separation of quotation from prose, the ban on fabricated associations, and the source-list format. Used by survey, paper-details, and other sourced-writing skills.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}
