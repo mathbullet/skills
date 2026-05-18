@@ -127,3 +127,47 @@ Define every concept the first time it appears in the explainer, before using it
 ## 6. Source list
 
 Place the source list at the end of the explainer, formatted per `documenting-with-sources`. In addition to the paper under review, include every other work the explainer mentions.
+
+## 7. Section-by-section subagent audit
+
+A first-pass draft typically contains errors that a single re-read misses: numbers transcribed off by a digit, citation numbers mapped to the wrong reference, sentences whose translated meaning drifts from the original, citations from the paper that never made it into the explainer. Before treating the draft as done, audit it section by section with subagents.
+
+### 7.1 Output location
+
+Write audit results to `{cwd}/subagent-reviews/{NN-section-name}.md`, one file per section. Create the directory if it does not exist. Audits are separate artifacts from the explainer; do not put them under `reports/`.
+
+### 7.2 Sectioning
+
+Split the explainer into independent units that align with the paper's section structure:
+
+- Abstract and bibliographic info (one unit)
+- Each top-level section of the paper body (Introduction, Background/Related Work, Method, Experiments, Limitations, Conclusion, etc.)
+- The source list at the end of the explainer
+
+Larger sections (e.g. an Experiments section with multiple sub-experiments and tables) can be split further if a single auditor would face too much material. Keep one auditor per file.
+
+### 7.3 Auditor brief
+
+Spawn one general-purpose subagent per section, in parallel. The brief tells each subagent to:
+
+1. Read the paper PDF and the corresponding section of the explainer.
+2. Verify factual accuracy: claims, equations, numbers in tables and inline numbers in prose, citation-number ↔ reference correspondence.
+3. Verify translation accuracy when the explainer is in a non-source language. Look for: dropped words, added implications not in the original, inappropriate word order, untranslated source-language idioms.
+4. Verify formatting compliance: citation form (`[p.X, Section Y.Z]` for the paper under review, `[author-short (YYYY)]` for other works), no `**` bold decoration, quotation rules from `writing-quotation` (code-block quotes, original-translation pairing, source reference on its own line outside the block).
+5. Verify terminology consistency across the section.
+
+Each audit file uses three headings: overall assessment, findings, suggested edits. Findings point at specific lines or quoted passages in the explainer; for translation issues, quote both the source and the explainer's rendering so the synthesis step can compare them side by side.
+
+### 7.4 Synthesis and edits
+
+After all audits return:
+
+1. Read each audit file in full.
+2. Cross-check audit claims against the paper itself before applying them. Auditors can be wrong, and two auditors may disagree on the same fact (for example, two reviewers may map a numeric citation `[16]` to different references). When that happens, consult the paper's References list and resolve the conflict from the source.
+3. Apply confirmed edits to the explainer.
+4. When applying overlapping edits across sections (e.g. a citation-label change that recurs throughout), make the change consistently in every occurrence.
+5. Move on once findings have been resolved — there is no need to write a separate "responses to audit" document; the audited explainer itself is the artifact.
+
+### 7.5 Vocabulary
+
+The artifact this skill produces is a detailed explainer, not a review. Audit outputs are reviews. Keep these terms separate in conversation with the user and in titles: do not call the explainer a "review", and do not call the audit a "detailed explainer". This separation prevents ambiguity when the user asks "update the review" partway through the workflow.
