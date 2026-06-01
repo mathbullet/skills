@@ -41,7 +41,35 @@ Pick the form by the nature of the content.
 - Bullet lists fit enumerations of parallel items — variable lists, definitions of evaluation metrics, table-column descriptions, comparison points between methods, etc. When the content is genuinely list-shaped, the prose form blurs the boundaries between items.
 - Prose fits relationships, causal flow, contextual explanation. When the reader needs to understand why items appear together or how they form a single argument, prose is what holds it together.
 
+### 1.4 Figures and tables: extract as images
+
+Never reconstruct a figure or table from scratch (no hand-written HTML tables, no redrawn SVG figures). Extract them as images from the source paper and insert those images into the deliverable (`.md` or HTML). Hand reconstruction introduces transcription errors and loses the original layout — bold, underline, colour-coded legends — so it is forbidden.
+
+Use the script bundled with this skill:
+
+```
+uv run {this-skill-dir}/scripts/extract_images.py <PDF path>
+```
+
+- The script finds `Figure N` / `Table N` captions in the PDF and clip-renders the figure/table region directly above each caption — the bounding box of vector drawings, rules, and embedded images — at 300 dpi. Figures and tables are usually drawn as vectors with no embedded raster, so extraction is region rendering, not pulling out an embedded image.
+- Output defaults to `{project-root}/images-from-papers/` as `{paper-filename-base}-fig{N}.png` / `{paper-filename-base}-table{N}.png`. The extraction list is recorded in `{base}-manifest.json` in the same directory.
+- A multi-panel float (e.g. one Table float that contains panels (a)–(f)) is extracted as a single image, matching the single float in the paper.
+- After extraction, insert the images from `images-from-papers/` into the deliverable. In `.md`, reference them by relative path, e.g. `![Figure N](../images-from-papers/{base}-fig{N}.png)`. In a self-contained HTML (e.g. `explain-via-html`), embedding as a base64 data URI is acceptable.
+- Add the translated caption as a separate paragraph below the image. The caption text inside the image stays in the original language (it is not redrawn), so the translation goes outside the image.
+- If the script occasionally drops a figure/table or includes too much margin, raise `--dpi` or inspect the output and adjust the pymupdf clip rectangle for that item. Either way, do not abandon the image-extraction approach.
+
 ## 2. Quotation and source reference
+
+### 2.0 Output is built around translated quotation blocks
+
+Build the explainer primarily out of "original quotation + translation" blocks that cover the paper's body in full. Do not make summarised, paraphrased prose the main act. Keep the reader able to check the original against the translation throughout the document.
+
+Prose — the writer's own text — is a complement to the quotation-led flow, added only when one of the following holds:
+
+- The connection between quotation blocks is unclear, and the relationship or logical flow between sections or paragraphs needs bridging.
+- A supplementary explanation — variable definitions, prerequisite knowledge, how to read a figure or table, the first-occurrence definition of a term — is genuinely useful to the reader.
+
+Where neither holds, do not re-summarise the original in prose; let the quotation block speak for itself. Do not settle into a "quotes carry the gist, prose summarises" split.
 
 To convey the paper's claims accurately, include direct quotations from the original. A summary alone does not let the reader judge whether the writer's interpretation is correct.
 
