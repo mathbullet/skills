@@ -2,7 +2,7 @@
 
 Claude Code skills by mathbullet, distributed as a plugin marketplace.
 
-The six skills focus on writing well-sourced Markdown deliverables and on producing explainers (either as Markdown or as a self-contained HTML page). They cross-reference each other: `survey` and `paper-details` build on top of `documenting-with-sources`, which in turn defers to `writing-quotation` for the formatting of quotation blocks.
+Six of the skills focus on writing well-sourced Markdown deliverables and on producing explainers (either as Markdown or as a self-contained HTML page). They cross-reference each other: `survey` and `paper-details` build on top of `documenting-with-sources`, which in turn defers to `writing-quotation` for the formatting of quotation blocks. A separate skill, `ja-text-communication`, collects the principles for Japanese-language communication with the user and is meant to be consulted before writing any prose.
 
 ## Install
 
@@ -14,6 +14,7 @@ The six skills focus on writing well-sourced Markdown deliverables and on produc
 /plugin install paper-details@skills
 /plugin install explain@skills
 /plugin install explain-via-html@skills
+/plugin install ja-text-communication@skills
 ```
 
 The skills auto-trigger based on the user's request — there are no slash commands to remember. Install only the ones you want.
@@ -28,6 +29,7 @@ The skills auto-trigger based on the user's request — there are no slash comma
 | [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | Produce a faithful detailed Markdown explainer of an academic paper (description, not critical review). |
 | [explain](plugins/explain/skills/explain/SKILL.md) | Conventions for writing a Markdown explainer of a concept or system. |
 | [explain-via-html](plugins/explain-via-html/skills/explain-via-html/SKILL.md) | Author an explainer as a self-contained single-page HTML file instead of a wall of Markdown. |
+| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | Principles for Japanese-language text communication with the user, consulted before writing any prose (term introduction, translation, anti-compression, references, logic, evidence, work reporting, context). |
 
 ## Dependencies between skills
 
