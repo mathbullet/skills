@@ -1,0 +1,8 @@
+{
+  "name": "ja-text-communication",
+  "description": "Principles for Japanese-language text communication with the user, meant to be consulted at the very start of any communication before writing prose. Covers term introduction, translation and Japanese phrasing, anti-compression, reference and quantity disambiguation, logic and document structure, evidence and factuality, work reporting, and reader/context retention.",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}
