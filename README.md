@@ -1,4 +1,4 @@
-# mathbullet/skills
+# mathbullet/skills [[🇯🇵](./README-ja.md)]
 
 Claude Code skills by mathbullet, distributed as a plugin marketplace.
 
