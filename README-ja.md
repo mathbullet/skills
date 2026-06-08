@@ -1,0 +1,42 @@
+# mathbullet/skills
+
+mathbullet による Claude Code skills。プラグインマーケットプレイスとして配布している。
+
+6 つの skill は、典拠を備えた Markdown 成果物を書くこと、および解説ドキュメント（Markdown もしくは自己完結型の HTML ページ）を作ることに焦点を当てている。これらは互いに相互参照している。`survey` と `paper-details` は `documenting-with-sources` の上に構築され、`documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。
+
+## インストール
+
+```
+/plugin marketplace add mathbullet/skills
+/plugin install writing-quotation@skills
+/plugin install documenting-with-sources@skills
+/plugin install survey@skills
+/plugin install paper-details@skills
+/plugin install explain@skills
+/plugin install explain-via-html@skills
+```
+
+skill はユーザーの依頼に基づいて自動的に起動する。覚えておくべきスラッシュコマンドはない。必要なものだけインストールすればよい。
+
+## プラグイン
+
+| プラグイン | 目的 |
+|---|---|
+| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | Markdown 文書の中で外部ソースを引用するときの書式ルール。 |
+| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | 典拠付きの執筆成果物に共通する規約（引用、文中参照、ソース一覧、捏造した関連づけの禁止）。 |
+| [survey](plugins/survey/skills/survey/SKILL.md) | トピックを索引化された Markdown レポートに変える、複数ソースの調査 skill。 |
+| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | 学術論文の忠実で詳細な Markdown 解説を作る（批評ではなく内容の記述）。 |
+| [explain](plugins/explain/skills/explain/SKILL.md) | 概念や仕組みの Markdown 解説を書くための規約。 |
+| [explain-via-html](plugins/explain-via-html/skills/explain-via-html/SKILL.md) | 大量の Markdown ではなく、自己完結型の単一ページ HTML ファイルとして解説を執筆する。 |
+
+## skill 間の依存関係
+
+- `survey` と `paper-details` は `documenting-with-sources` の共通規約に従う。これらのいずれかをインストールするときは常に `documenting-with-sources` もインストールする。
+- `documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。`documenting-with-sources` をインストールするときは常に `writing-quotation` もインストールする。
+- `survey`、`paper-details`、`explain-via-html` も `writing-quotation` を直接参照している。
+
+相互参照は skill 名で行われ、両方の skill が同じ Claude Code インスタンスにインストールされていれば解決する。
+
+## ライセンス
+
+MIT
