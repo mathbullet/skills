@@ -15,6 +15,7 @@ mathbullet による Claude Code skills。プラグインマーケットプレ�
 /plugin install explain@skills
 /plugin install explain-via-html@skills
 /plugin install ja-text-communication@skills
+/plugin install hermes-tweet@skills
 ```
 
 skill はユーザーの依頼に基づいて自動的に起動する。覚えておくべきスラッシュコマンドはない。必要なものだけインストールすればよい。
@@ -30,12 +31,14 @@ skill はユーザーの依頼に基づいて自動的に起動する。覚え�
 | [explain](plugins/explain/skills/explain/SKILL.md) | 概念や仕組みの Markdown 解説を書くための規約。 |
 | [explain-via-html](plugins/explain-via-html/skills/explain-via-html/SKILL.md) | 大量の Markdown ではなく、自己完結型の単一ページ HTML ファイルとして解説を執筆する。 |
 | [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | ユーザーとの日本語テキストコミュニケーションで守るべき原則。文章を書く前に参照する（用語導入、翻訳、圧縮の禁止、参照、論理、根拠、作業報告、文脈の保持）。 |
+| [hermes-tweet](plugins/hermes-tweet/skills/hermes-tweet/SKILL.md) | Hermes Agent の Hermes Tweet を使い、X/Twitter の投稿・トレンド・アカウントのシグナルを、典拠付き Markdown レポートにまとめる。 |
 
 ## skill 間の依存関係
 
 - `survey` と `paper-details` は `documenting-with-sources` の共通規約に従う。これらのいずれかをインストールするときは常に `documenting-with-sources` もインストールする。
 - `documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。`documenting-with-sources` をインストールするときは常に `writing-quotation` もインストールする。
 - `survey`、`paper-details`、`explain-via-html` も `writing-quotation` を直接参照している。
+- `hermes-tweet` は X/Twitter の根拠から Markdown レポートを作るとき、`documenting-with-sources` と `writing-quotation` の規約に従う。
 
 相互参照は skill 名で行われ、両方の skill が同じ Claude Code インスタンスにインストールされていれば解決する。
 

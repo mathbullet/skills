@@ -76,6 +76,16 @@
         "name": "mathbullet"
       },
       "license": "MIT"
+    },
+    {
+      "name": "hermes-tweet",
+      "source": "./plugins/hermes-tweet",
+      "description": "Hermes Agent skill for X/Twitter social-signal research with sourced Markdown output. Uses Hermes Tweet to explore routes, read public posts and trends, and keep account-changing actions gated by explicit approval.",
+      "version": "0.1.6",
+      "author": {
+        "name": "Xquik"
+      },
+      "license": "MIT"
     }
   ]
 }

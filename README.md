@@ -15,6 +15,7 @@ Six of the skills focus on writing well-sourced Markdown deliverables and on pro
 /plugin install explain@skills
 /plugin install explain-via-html@skills
 /plugin install ja-text-communication@skills
+/plugin install hermes-tweet@skills
 ```
 
 The skills auto-trigger based on the user's request — there are no slash commands to remember. Install only the ones you want.
@@ -30,12 +31,14 @@ The skills auto-trigger based on the user's request — there are no slash comma
 | [explain](plugins/explain/skills/explain/SKILL.md) | Conventions for writing a Markdown explainer of a concept or system. |
 | [explain-via-html](plugins/explain-via-html/skills/explain-via-html/SKILL.md) | Author an explainer as a self-contained single-page HTML file instead of a wall of Markdown. |
 | [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | Principles for Japanese-language text communication with the user, consulted before writing any prose (term introduction, translation, anti-compression, references, logic, evidence, work reporting, context). |
+| [hermes-tweet](plugins/hermes-tweet/skills/hermes-tweet/SKILL.md) | Use Hermes Tweet from Hermes Agent to turn X/Twitter posts, trends, and account signals into a sourced Markdown social-signal report. |
 
 ## Dependencies between skills
 
 - `survey` and `paper-details` follow the shared conventions in `documenting-with-sources`. Install `documenting-with-sources` whenever you install either of those.
 - `documenting-with-sources` defers to `writing-quotation` for the formatting of quotation blocks. Install `writing-quotation` whenever you install `documenting-with-sources`.
 - `survey`, `paper-details`, and `explain-via-html` also reference `writing-quotation` directly.
+- `hermes-tweet` follows `documenting-with-sources` and `writing-quotation` conventions when producing Markdown reports from X/Twitter evidence.
 
 The cross-references are by skill name and resolve once both skills are installed in the same Claude Code instance.
 
