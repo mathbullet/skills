@@ -1,0 +1,621 @@
+/* HTML document design system */
+
+:root {
+  --mb-bg: #FAF9F6;
+  --mb-surface: #FFFFFF;
+  --mb-ink: #111110;
+  --mb-ink-body: #1A1A1A;
+  --mb-border: #111110;
+  --mb-rule: #DFDFDF;
+  --mb-muted: #595959;
+  --mb-faint: #A5A5A5;
+  --mb-link: #2990DA;
+  --mb-accent: #D63A2F;
+  --mb-font-sans: "Ubuntu Sans", "Noto Sans JP", sans-serif;
+  --mb-font-mono: "UbuntuMono Nerd Font", "Ubuntu Mono", monospace;
+  --mb-radius: 12px;
+  --mb-border-w: 1.5px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--mb-bg);
+}
+
+body {
+  margin: 0;
+  background: var(--mb-bg);
+  color: var(--mb-ink-body);
+  font-family: var(--mb-font-sans);
+  font-size: 16px;
+  line-height: 1.9;
+  font-feature-settings: "palt";
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---- ページ骨格 ---------------------------------------------------- */
+
+.mb-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 48px 64px;
+}
+
+.mb-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 48px;
+  align-items: start;
+}
+
+.mb-main { min-width: 0; }
+
+aside.mb-glossary {
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding-left: 24px;
+  border-left: var(--mb-border-w) solid var(--mb-rule);
+}
+
+@media (max-width: 1000px) {
+  .mb-page { padding: 24px 20px 48px; }
+  .mb-wrap { display: block; }
+  aside.mb-glossary {
+    position: static;
+    max-height: none;
+    padding-left: 0;
+    border-left: none;
+    margin-bottom: 32px;
+  }
+}
+
+/* ---- ヘッダー・フッター --------------------------------------------- */
+
+.mb-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+
+.mb-logo {
+  flex: none;
+  height: 30px;
+  margin-top: 4px;
+}
+
+.mb-footer {
+  margin-top: 64px;
+  font-size: 12px;
+  color: var(--mb-faint);
+}
+
+/* ---- 見出し --------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  color: var(--mb-ink);
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 0;
+}
+
+h1 {
+  font-size: 28px;
+  border-left: 12px solid var(--mb-ink);
+  padding-left: 18px;
+}
+
+h2 {
+  font-size: 22px;
+  border-left: 10px solid var(--mb-ink);
+  padding-left: 14px;
+  margin: 56px 0 16px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 36px 0 12px;
+}
+
+.mb-lede {
+  margin: 16px 0 0;
+  font-size: 16.5px;
+}
+
+.mb-meta-line {
+  margin: 4px 0 0;
+  font-family: var(--mb-font-mono);
+  font-size: 13px;
+  color: var(--mb-muted);
+}
+
+/* ---- 本文要素 -------------------------------------------------------- */
+
+p { margin: 12px 0; }
+
+a {
+  color: var(--mb-link);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+strong { color: var(--mb-ink); }
+
+em {
+  font-style: normal;
+  color: var(--mb-accent);
+  font-weight: 700;
+}
+
+ul, ol { padding-left: 1.6em; margin: 12px 0; }
+
+ul { list-style: none; }
+
+ul > li { position: relative; }
+
+ul > li::before {
+  content: "";
+  position: absolute;
+  left: -1.15em;
+  top: 0.85em;
+  width: 0.42em;
+  height: 0.42em;
+  border-radius: 50%;
+  background: var(--mb-ink);
+}
+
+ul ul > li::before {
+  width: 0.3em;
+  height: 0.3em;
+  top: 0.9em;
+  background: var(--mb-muted);
+}
+
+hr {
+  border: none;
+  border-top: var(--mb-border-w) solid var(--mb-rule);
+  margin: 40px 0;
+}
+
+/* ---- カード ---------------------------------------------------------- */
+
+.mb-card {
+  background: var(--mb-surface);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.mb-card > :first-child { margin-top: 0; }
+.mb-card > :last-child { margin-bottom: 0; }
+
+.mb-card-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--mb-ink);
+  border-bottom: var(--mb-border-w) solid var(--mb-border);
+  margin: -20px -24px 16px;
+  padding: 12px 24px;
+}
+
+/* .mb-card > :first-child の margin-top: 0 に負けないよう帯の食い込みを明示する */
+.mb-card > .mb-card-title:first-child { margin-top: -20px; }
+
+.mb-card-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--mb-ink);
+  margin: 0 0 8px;
+}
+
+.mb-grid-2, .mb-grid-3 {
+  display: grid;
+  gap: 20px;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+.mb-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mb-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.mb-grid-2 > .mb-card, .mb-grid-3 > .mb-card { margin: 0; }
+
+@media (max-width: 1000px) {
+  .mb-grid-2, .mb-grid-3 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---- 要約ボックス ----------------------------------------------------- */
+
+.mb-summary {
+  background: var(--mb-surface);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.mb-summary::before {
+  content: "要点";
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--mb-ink);
+  margin-bottom: 8px;
+}
+
+.mb-summary > :last-child { margin-bottom: 0; }
+
+/* ---- 目次 ------------------------------------------------------------ */
+
+nav.mb-toc {
+  background: var(--mb-surface);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  padding: 16px 24px;
+  margin: 24px 0;
+}
+
+nav.mb-toc ol {
+  list-style: none;
+  counter-reset: toc;
+  margin: 0;
+  padding: 0;
+}
+
+nav.mb-toc > ol > li { counter-increment: toc; }
+
+nav.mb-toc > ol > li::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--mb-font-mono);
+  color: var(--mb-muted);
+  margin-right: 0.8em;
+}
+
+nav.mb-toc ol ol { padding-left: 2.6em; }
+
+nav.mb-toc a { color: var(--mb-ink-body); }
+nav.mb-toc a:hover { color: var(--mb-link); }
+
+/* ---- チップ（角丸の小ラベル） ------------------------------------------ */
+
+.mb-chip {
+  display: inline-block;
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: 8px;
+  padding: 0 0.6em;
+  font-size: 14px;
+  line-height: 1.7;
+  background: var(--mb-surface);
+  color: var(--mb-ink);
+  margin: 2px 2px;
+}
+
+/* ---- 引用 ------------------------------------------------------------ */
+
+blockquote.mb-quote {
+  background: var(--mb-surface);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  padding: 20px 28px;
+  margin: 24px 0;
+}
+
+blockquote.mb-quote::before {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 20px;
+  margin-bottom: 8px;
+  background: var(--mb-ink);
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 20"><path d="M0 20V11C0 5 3 1 9 0l1 3c-3 1-5 3-5 6h6v11H0zm15 0V11c0-6 3-10 9-11l1 3c-3 1-5 3-5 6h6v11H15z"/></svg>') no-repeat center / contain;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 20"><path d="M0 20V11C0 5 3 1 9 0l1 3c-3 1-5 3-5 6h6v11H0zm15 0V11c0-6 3-10 9-11l1 3c-3 1-5 3-5 6h6v11H15z"/></svg>') no-repeat center / contain;
+}
+
+blockquote.mb-quote .mb-quote-original {
+  margin: 0 0 14px;
+}
+
+blockquote.mb-quote .mb-quote-ja {
+  border-top: var(--mb-border-w) solid var(--mb-rule);
+  padding-top: 14px;
+  margin: 0;
+}
+
+blockquote.mb-quote .mb-quote-source {
+  font-family: var(--mb-font-mono);
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+
+/* ---- 用語リスト・表 ----------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  background: var(--mb-surface);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+th, td {
+  border: var(--mb-border-w) solid var(--mb-rule);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+th {
+  color: var(--mb-ink);
+  border-bottom: var(--mb-border-w) solid var(--mb-border);
+  background: var(--mb-surface);
+}
+
+/* 行見出しのラベル列。折り返しを禁止し、残り幅を本文列へ譲る */
+th.mb-rowlabel, td.mb-rowlabel { white-space: nowrap; }
+
+aside.mb-glossary h2 {
+  border-left: none;
+  padding-left: 0;
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+aside.mb-glossary table { font-size: 13.5px; }
+
+aside.mb-glossary th, aside.mb-glossary td { padding: 6px 8px; }
+
+/* ---- コード・等幅 ------------------------------------------------------ */
+
+code, kbd, samp {
+  font-family: var(--mb-font-mono);
+  font-size: 0.92em;
+}
+
+p code, li code, td code {
+  background: #F1EFE9;
+  border-radius: 5px;
+  padding: 0.08em 0.35em;
+}
+
+pre {
+  background: var(--mb-surface);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  padding: 16px 20px;
+  overflow-x: auto;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 13.5px;
+}
+
+/* ---- シンタックスハイライト（Highlight.js） ----------------------------- */
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  color: var(--mb-ink-body);
+  background: transparent;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-meta,
+.hljs-doctag {
+  color: var(--mb-muted);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-built_in,
+.hljs-type {
+  color: var(--mb-link);
+  font-weight: 700;
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-literal,
+.hljs-number,
+.hljs-regexp {
+  color: var(--mb-accent);
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-title.class_,
+.hljs-section,
+.hljs-name,
+.hljs-selector-class {
+  color: var(--mb-ink);
+  font-weight: 700;
+}
+
+.hljs-variable,
+.hljs-property,
+.hljs-params,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--mb-ink-body);
+}
+
+/* ---- 図 ---------------------------------------------------------------- */
+
+figure.mb-figure {
+  margin: 24px 0;
+  text-align: center;
+}
+
+figure.mb-figure svg { max-width: 100%; height: auto; }
+
+figure.mb-figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+figure.mb-figure figcaption {
+  font-family: var(--mb-font-mono);
+  font-size: 13px;
+  color: var(--mb-muted);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.mb-figure-frame {
+  background: var(--mb-surface);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: var(--mb-radius);
+  padding: 24px;
+}
+
+/* ---- 読みやすい差分（GitHub風。緑・赤の淡背景は差分部品に限る機能色） --------- */
+
+pre.mb-diff {
+  padding: 12px 0;
+  /* span間の改行テキストノードが空行にならないよう、行スパン側だけ pre にする */
+  white-space: normal;
+}
+
+pre.mb-diff .add, pre.mb-diff .del, pre.mb-diff .ctx {
+  display: block;
+  white-space: pre;
+  padding: 1px 20px 1px 8px;
+}
+
+pre.mb-diff .add::before,
+pre.mb-diff .del::before,
+pre.mb-diff .ctx::before {
+  display: inline-block;
+  width: 1.4em;
+  color: var(--mb-muted);
+}
+
+pre.mb-diff .add {
+  background: #E6FFEC;
+}
+
+pre.mb-diff .add::before {
+  content: "+";
+  color: #1A7F37;
+}
+
+pre.mb-diff .del {
+  background: #FFEBE9;
+}
+
+pre.mb-diff .del::before {
+  content: "-";
+  color: #CF222E;
+}
+
+pre.mb-diff .ctx::before { content: " "; }
+
+/* ---- 印刷 --------------------------------------------------------------- */
+
+@media print {
+  @page { size: A4; margin: 15mm; }
+
+  html, body {
+    font-size: 10.5pt;
+    line-height: 1.55;
+    background: #FFFFFF;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .mb-page { max-width: none; padding: 0; }
+
+  .mb-wrap { display: block; }
+
+  aside.mb-glossary {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 2px solid #000;
+    break-before: page;
+    page-break-before: always;
+  }
+
+  h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+
+  .mb-card, .mb-summary, blockquote.mb-quote, figure.mb-figure,
+  nav.mb-toc, table, tr, pre, .mb-lede {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .mb-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  a { color: #000; text-decoration: none; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    font-family: var(--mb-font-mono);
+    word-break: break-all;
+  }
+}
+
+/* ---- 数式コピー --------------------------------------------------------- */
+
+.mb-math-block {
+  position: relative;
+  margin: 20px 0;
+}
+
+.mb-math-copy {
+  font-family: var(--mb-font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 1px 8px;
+  background: var(--mb-surface);
+  color: var(--mb-ink);
+  border: var(--mb-border-w) solid var(--mb-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mb-math-copy:hover { background: var(--mb-rule); }
+
+.mb-math-block > .mb-math-copy {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.mb-math-inline > .mb-math-copy {
+  display: none;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.mb-math-inline:hover > .mb-math-copy,
+.mb-math-inline:focus-within > .mb-math-copy {
+  display: inline-block;
+}
+
+@media print {
+  .mb-math-copy { display: none; }
+}
