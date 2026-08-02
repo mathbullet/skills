@@ -4,8 +4,6 @@ mathbullet による Agent skills。
 
 ## インストール
 
-`skills` CLI を使うと、対応する Agent を選んでインストールできる。
-
 ```bash
 npx skills add mathbullet/skills
 ```
