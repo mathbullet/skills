@@ -1,49 +1,47 @@
 # mathbullet/skills [[en](./README-en.md)]
 
-mathbullet による Claude Code skills。プラグインマーケットプレイスとして配布している。
-
-収録している Skills の役割は次のとおり。
-
-- `survey` と `paper-details`：典拠に基づく調査レポートや論文解説を作成する。
-- `documenting-with-sources`：典拠を示しながら文書を書くための共通規約を定める。
-- `writing-quotation`：外部ソースを引用するときの書式を定める。
-- `explain` と `html`：概念や仕組みを Markdown または HTML で解説する。
-- `ja-text-communication`：ユーザーと日本語でやり取りするときの原則を定める。
+mathbullet による Agent skills。
 
 ## インストール
 
-```
-/plugin marketplace add mathbullet/skills
-/plugin install writing-quotation@skills
-/plugin install documenting-with-sources@skills
-/plugin install survey@skills
-/plugin install paper-details@skills
-/plugin install explain@skills
-/plugin install html@skills
-/plugin install ja-text-communication@skills
+`skills` CLI を使うと、対応する Agent を選んでインストールできる。
+
+```bash
+npx skills add mathbullet/skills
 ```
 
-skill はユーザーの依頼に基づいて自動的に起動する。覚えておくべきスラッシュコマンドはない。必要なものだけインストールすればよい。
+特定の Skill だけをインストールする場合は、`--skill` で名前を指定する。
+
+```bash
+npx skills add mathbullet/skills --skill html
+```
+
+Claude Code では、プラグインマーケットプレイスからインストールすることもできる。
+
+```
+/plugin marketplace add mathbullet/skills
+/plugin install html@skills
+```
 
 ## Skills
 
-| Skill | 目的 |
+| Skill | 役割 |
 |---|---|
-| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | Markdown 文書の中で外部ソースを引用するときの書式ルール。 |
-| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | 典拠付きの執筆成果物に共通する規約（引用、文中参照、ソース一覧、捏造した関連づけの禁止）。 |
-| [survey](plugins/survey/skills/survey/SKILL.md) | トピックを索引化された Markdown レポートに変える、複数ソースの調査 skill。 |
-| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | 学術論文の忠実で詳細な Markdown 解説を作る（批評ではなく内容の記述）。 |
-| [explain](plugins/explain/skills/explain/SKILL.md) | 概念や仕組みの Markdown 解説を書くための規約。 |
-| [html](plugins/html/skills/html/SKILL.md) | 概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。 |
-| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | ユーザーとの日本語テキストコミュニケーションで守るべき原則。文章を書く前に参照する（用語導入、翻訳、圧縮の禁止、参照、論理、根拠、作業報告、文脈の保持）。 |
+| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | 外部ソースを引用する際の書式を統一する。 |
+| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | 典拠に基づく文書に共通する引用・文中参照・ソース一覧の規約を定める。 |
+| [survey](plugins/survey/skills/survey/SKILL.md) | 複数のソースを調査し、トピック別の索引を Markdown で作成する。 |
+| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | 論文の内容を忠実かつ詳細に解説する Markdown 文書を作成する。 |
+| [explain](plugins/explain/skills/explain/SKILL.md) | 概念や仕組みを説明する Markdown 文書の構成・記述規約を定める。 |
+| [html](plugins/html/skills/html/SKILL.md) | 概念・仕組み・調査内容を視覚的に説明する HTML 文書を作成・編集する。 |
+| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | 日本語でユーザーとやり取りする際の文章・用語・根拠提示の原則を定める。 |
 
-## skill 間の依存関係
+## Skills 間の依存関係
 
 - `survey` と `paper-details` は `documenting-with-sources` の共通規約に従う。これらのいずれかをインストールするときは常に `documenting-with-sources` もインストールする。
 - `documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。`documenting-with-sources` をインストールするときは常に `writing-quotation` もインストールする。
 - `survey` と `paper-details` も `writing-quotation` を直接参照している。
 
-相互参照は skill 名で行われ、両方の skill が同じ Claude Code インスタンスにインストールされていれば解決する。
+相互参照は Skill 名で行われ、必要な Skills が同じエージェント環境にインストールされていれば解決する。
 
 ## ライセンス
 
