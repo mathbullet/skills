@@ -1,10 +1,10 @@
-# mathbullet/skills [[🇯🇵](./README-ja.md)]
+# mathbullet/skills [[en](./README-en.md)]
 
-Claude Code skills by mathbullet, distributed as a plugin marketplace.
+mathbullet による Claude Code skills。プラグインマーケットプレイスとして配布している。
 
-Six of the skills focus on writing well-sourced Markdown deliverables and on producing explainers (either as Markdown or as an HTML document). They cross-reference each other: `survey` and `paper-details` build on top of `documenting-with-sources`, which in turn defers to `writing-quotation` for the formatting of quotation blocks. A separate skill, `ja-text-communication`, collects the principles for Japanese-language communication with the user and is meant to be consulted before writing any prose.
+このうち 6 つの skill は、典拠を備えた Markdown 成果物を書くこと、および解説ドキュメント（Markdown もしくは HTML 文書）を作ることに焦点を当てている。これらは互いに相互参照している。`survey` と `paper-details` は `documenting-with-sources` の上に構築され、`documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。もう 1 つの `ja-text-communication` は、ユーザーとの日本語コミュニケーションで守るべき原則をまとめた skill で、文章を書く前に参照することを意図している。
 
-## Install
+## インストール
 
 ```
 /plugin marketplace add mathbullet/skills
@@ -17,28 +17,28 @@ Six of the skills focus on writing well-sourced Markdown deliverables and on pro
 /plugin install ja-text-communication@skills
 ```
 
-The skills auto-trigger based on the user's request — there are no slash commands to remember. Install only the ones you want.
+skill はユーザーの依頼に基づいて自動的に起動する。覚えておくべきスラッシュコマンドはない。必要なものだけインストールすればよい。
 
-## Plugins
+## プラグイン
 
-| Plugin | Purpose |
+| プラグイン | 目的 |
 |---|---|
-| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | Formatting rules for quoting external sources inside a Markdown document. |
-| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | Common conventions for sourced-writing deliverables (citation, in-text references, source list, ban on fabricated associations). |
-| [survey](plugins/survey/skills/survey/SKILL.md) | Multi-source investigation skill that turns a topic into an indexed Markdown report. |
-| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | Produce a faithful detailed Markdown explainer of an academic paper (description, not critical review). |
-| [explain](plugins/explain/skills/explain/SKILL.md) | Conventions for writing a Markdown explainer of a concept or system. |
-| [html](plugins/html/skills/html/SKILL.md) | Create and edit visual explainer documents as HTML files. |
-| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | Principles for Japanese-language text communication with the user, consulted before writing any prose (term introduction, translation, anti-compression, references, logic, evidence, work reporting, context). |
+| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | Markdown 文書の中で外部ソースを引用するときの書式ルール。 |
+| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | 典拠付きの執筆成果物に共通する規約（引用、文中参照、ソース一覧、捏造した関連づけの禁止）。 |
+| [survey](plugins/survey/skills/survey/SKILL.md) | トピックを索引化された Markdown レポートに変える、複数ソースの調査 skill。 |
+| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | 学術論文の忠実で詳細な Markdown 解説を作る（批評ではなく内容の記述）。 |
+| [explain](plugins/explain/skills/explain/SKILL.md) | 概念や仕組みの Markdown 解説を書くための規約。 |
+| [html](plugins/html/skills/html/SKILL.md) | 概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。 |
+| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | ユーザーとの日本語テキストコミュニケーションで守るべき原則。文章を書く前に参照する（用語導入、翻訳、圧縮の禁止、参照、論理、根拠、作業報告、文脈の保持）。 |
 
-## Dependencies between skills
+## skill 間の依存関係
 
-- `survey` and `paper-details` follow the shared conventions in `documenting-with-sources`. Install `documenting-with-sources` whenever you install either of those.
-- `documenting-with-sources` defers to `writing-quotation` for the formatting of quotation blocks. Install `writing-quotation` whenever you install `documenting-with-sources`.
-- `survey` and `paper-details` also reference `writing-quotation` directly.
+- `survey` と `paper-details` は `documenting-with-sources` の共通規約に従う。これらのいずれかをインストールするときは常に `documenting-with-sources` もインストールする。
+- `documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。`documenting-with-sources` をインストールするときは常に `writing-quotation` もインストールする。
+- `survey` と `paper-details` も `writing-quotation` を直接参照している。
 
-The cross-references are by skill name and resolve once both skills are installed in the same Claude Code instance.
+相互参照は skill 名で行われ、両方の skill が同じ Claude Code インスタンスにインストールされていれば解決する。
 
-## License
+## ライセンス
 
 MIT
