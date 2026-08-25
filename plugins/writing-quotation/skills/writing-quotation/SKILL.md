@@ -1,6 +1,6 @@
 ---
 name: writing-quotation
-description: Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document. Quotations always live in fenced code blocks (never the `>` blockquote syntax), original and translation sit together, source references go on the line after the fence, and bare numeric references like `[1]` are forbidden. Other sourced-writing skills (survey, paper-details, ...) reference this skill. Consult whenever you write or edit a quotation block.
+description: Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document. Quotations always live in fenced code blocks (never Markdown blockquote syntax), original and translation sit together, source references go on the line after the fence, and bare numeric references like `[1]` are forbidden. Other sourced-writing skills (survey, paper-details, ...) reference this skill. Consult whenever you write or edit a quotation block.
 ---
 
 # Writing Quotation
