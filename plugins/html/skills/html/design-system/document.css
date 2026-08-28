@@ -37,21 +37,26 @@ body {
 /* ---- ページ骨格 ---------------------------------------------------- */
 
 .mb-page {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 48px 64px;
 }
 
+.mb-hero {
+  max-width: 960px;
+}
+
 .mb-wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 48px;
+  grid-template-columns: minmax(0, 960px) 280px;
+  gap: 64px;
   align-items: start;
 }
 
 .mb-main { min-width: 0; }
 
 aside.mb-glossary {
+  grid-column: 2;
   position: sticky;
   top: 24px;
   max-height: calc(100vh - 48px);
@@ -60,16 +65,29 @@ aside.mb-glossary {
   border-left: var(--mb-border-w) solid var(--mb-rule);
 }
 
-@media (max-width: 1000px) {
-  .mb-page { padding: 24px 20px 48px; }
+@media (max-width: 1399px) {
+  .mb-hero,
+  .mb-wrap {
+    max-width: 960px;
+    margin-inline: auto;
+  }
+
   .mb-wrap { display: block; }
+
   aside.mb-glossary {
     position: static;
     max-height: none;
+    overflow: visible;
     padding-left: 0;
     border-left: none;
-    margin-bottom: 32px;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: var(--mb-border-w) solid var(--mb-rule);
   }
+}
+
+@media (max-width: 1000px) {
+  .mb-page { padding: 24px 20px 48px; }
 }
 
 /* ---- ヘッダー・フッター --------------------------------------------- */
@@ -369,9 +387,24 @@ aside.mb-glossary h2 {
   margin: 0 0 12px;
 }
 
-aside.mb-glossary table { font-size: 13.5px; }
+aside.mb-glossary dl { margin: 0; }
 
-aside.mb-glossary th, aside.mb-glossary td { padding: 6px 8px; }
+aside.mb-glossary dt {
+  margin: 0;
+  padding-top: 10px;
+  border-top: var(--mb-border-w) solid var(--mb-rule);
+  color: var(--mb-ink);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+aside.mb-glossary dd {
+  margin: 3px 0 12px;
+  color: var(--mb-muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
 
 /* ---- コード・等幅 ------------------------------------------------------ */
 

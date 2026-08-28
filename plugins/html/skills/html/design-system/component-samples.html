@@ -15,6 +15,8 @@
 <body>
 <div class="mb-page">
 
+<div class="mb-hero">
+
 <header class="mb-header">
   <div>
     <h1>HTML ドキュメントデザインシステム 部品見本</h1>
@@ -25,9 +27,6 @@
 <p class="mb-lede">
 技術的な説明 HTML で使う視覚部品と、その用途を確認するための見本です。
 </p>
-
-<div class="mb-wrap">
-<div class="mb-main">
 
 <nav class="mb-toc">
   <ol>
@@ -47,6 +46,11 @@
     <li>有彩色はリンク青 <code>#2990DA</code> とアクセント赤 <code>#D63A2F</code> の2色のみ。赤は1ページに1箇所まで</li>
   </ul>
 </div>
+
+</div><!-- /.mb-hero -->
+
+<div class="mb-wrap">
+<main class="mb-main">
 
 <h2 id="tokens">設計トークン（色と字体）</h2>
 
@@ -221,20 +225,26 @@ head から CSS、数式コピー用 JavaScript、MathJax、Highlight.js の順�
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;hljs.highlightAll();&lt;/script&gt;</code></pre>
 
-</div><!-- /.mb-main -->
+</main><!-- /.mb-main -->
 
-<aside class="mb-glossary">
-  <h2>用語リスト</h2>
-  <table>
-    <tr><th>用語</th><th>定義</th></tr>
-    <tr><td>設計トークン</td><td>色・字体・余白などのデザイン上の決定を、名前を付けた変数として定義したもの。</td></tr>
-    <tr><td>オフホワイト</td><td>純白よりわずかに暖色寄りの背景色。本システムでは #FAF9F6。</td></tr>
-    <tr><td>カード</td><td>白地・黒罫線・角丸で本文から浮かせた矩形の部品。</td></tr>
-    <tr><td>チップ</td><td>角丸の枠で囲んだ小さなラベル。並列の固有名の列挙に使う。</td></tr>
-    <tr><td>等幅フォント</td><td>全文字が同じ幅を持つ字体。コード・URL・日付などのメタ情報に使う。</td></tr>
-    <tr><td>MathJax</td><td>ブラウザ上で数式を組版するJavaScriptライブラリ。</td></tr>
-    <tr><td>読みやすい差分</td><td>変更を論理順の散文に並べ替え、コード断片を埋め込んだ差分の提示形式。literate diff の訳。</td></tr>
-  </table>
+<aside class="mb-glossary" aria-labelledby="glossary-title">
+  <h2 id="glossary-title">用語リスト</h2>
+  <dl>
+    <dt>設計トークン</dt>
+    <dd>色・字体・余白などのデザイン上の決定を、名前を付けた変数として定義したもの。</dd>
+    <dt>オフホワイト</dt>
+    <dd>純白よりわずかに暖色寄りの背景色。本システムでは #FAF9F6。</dd>
+    <dt>カード</dt>
+    <dd>白地・黒罫線・角丸で本文から浮かせた矩形の部品。</dd>
+    <dt>チップ</dt>
+    <dd>角丸の枠で囲んだ小さなラベル。並列の固有名の列挙に使う。</dd>
+    <dt>等幅フォント</dt>
+    <dd>全文字が同じ幅を持つ字体。コード・URL・日付などのメタ情報に使う。</dd>
+    <dt>MathJax</dt>
+    <dd>ブラウザ上で数式を組版するJavaScriptライブラリ。</dd>
+    <dt>読みやすい差分</dt>
+    <dd>変更を論理順の散文に並べ替え、コード断片を埋め込んだ差分の提示形式。literate diff の訳。</dd>
+  </dl>
 </aside>
 
 </div><!-- /.mb-wrap -->
