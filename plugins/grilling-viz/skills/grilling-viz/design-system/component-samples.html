@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grilling-viz — コンポーネントとトークン</title>
+<!-- gv:styles -->
+<style>
+body { margin:0; background:var(--gv-color-page-background); }
+.catalog { max-width:var(--gv-page-max-width); margin:auto; padding:var(--gv-page-padding); }
+.catalog-header { margin-bottom:var(--gv-page-padding); }
+.catalog-header h1 { margin:0 0 var(--gv-inline-item-gap); font-size:var(--gv-text-theme-name); color:var(--gv-color-text); }
+.catalog-header p { margin:var(--gv-label-content-gap) 0; }
+.catalog-nav { display:flex; flex-wrap:wrap; gap:var(--gv-inline-item-gap) var(--gv-panel-padding); margin-top:var(--gv-panel-padding); }
+.catalog-index { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:var(--gv-panel-padding); margin-bottom:var(--gv-section-gap); }
+.catalog-index h2 { font-size:var(--gv-text-body); margin:0 0 var(--gv-label-content-gap); }
+.catalog-index ul { list-style:none; margin:0; padding:0; font-size:var(--gv-text-label); }
+.catalog-index a { display:block; padding:var(--gv-theme-caption-gap) 0; color:var(--gv-color-text); }
+.catalog-section { margin-block:var(--gv-section-gap); scroll-margin-top:var(--gv-related-content-gap); }
+.catalog-section > h2 { color:var(--gv-color-text); font-size:var(--gv-text-theme-name); margin:0 0 var(--gv-panel-padding); }
+.specimen { margin-block:var(--gv-page-padding); scroll-margin-top:var(--gv-related-content-gap); }
+.specimen > h3 { font-size:var(--gv-text-body); color:var(--gv-color-text); margin:0 0 var(--gv-inline-item-gap); font-weight:var(--gv-weight-question-action); }
+.specimen-stage { background:var(--gv-color-control-background); border:var(--gv-border-control-width) solid var(--gv-color-control-border); padding:var(--gv-panel-padding); border-radius:var(--gv-radius-control); min-width:0; }
+.specimen-stage.flush { padding:0; }
+.sample-stack { display:grid; gap:var(--gv-panel-padding); }
+.sample-row { display:flex; flex-wrap:wrap; align-items:flex-start; gap:var(--gv-panel-padding); }
+.sample-case { min-width:0; }
+.sample-case > .case-name { color:var(--gv-color-text); font-size:var(--gv-text-label); margin-bottom:var(--gv-inline-item-gap); display:block; }
+.sample-row > .sample-case { flex:1 1 13rem; }
+.sample-case > .gv-option,.sample-case > .gv-input { width:100%; }
+.token-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--gv-related-content-gap); }
+.token { background:var(--gv-color-control-background); border:var(--gv-border-control-width) solid var(--gv-color-control-border); padding:var(--gv-related-content-gap); min-width:0; border-radius:var(--gv-radius-control); }
+.token h3 { margin:0 0 var(--gv-label-content-gap); font-size:var(--gv-text-body); }
+.token code,.token output { display:block; font-family:ui-monospace,monospace; font-size:var(--gv-text-label); white-space:normal; overflow-wrap:anywhere; }
+.token code { color:var(--gv-color-text); }
+.token-preview { margin-bottom:var(--gv-related-content-gap); min-height:var(--gv-control-min-height); display:flex; align-items:center; overflow-wrap:anywhere; }
+.token-color { width:100%; height:var(--gv-answer-input-min-height); border:var(--gv-border-control-width) solid var(--gv-color-control-border); }
+.token-measure { background:var(--gv-color-primary-action); height:var(--gv-inline-item-gap); max-width:100%; }
+.token-shape { width:var(--gv-answer-input-min-height); height:var(--gv-control-min-height); border:var(--gv-border-control-width) solid var(--gv-color-primary-action); background:var(--gv-color-selected-option-background); }
+.token-group { margin-top:var(--gv-page-padding); scroll-margin-top:var(--gv-related-content-gap); }
+.token-group > h3 { font-size:var(--gv-text-body); margin-bottom:var(--gv-related-content-gap); }
+.catalog-end { margin-block:var(--gv-section-gap) var(--gv-panel-padding); }
+@media (max-width: 48rem) {
+  .catalog { padding:var(--gv-compact-page-padding); }
+  .catalog-index { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .token-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .specimen-stage { padding:var(--gv-related-content-gap); }
+}
+@media (max-width: 32rem) {
+  .token-grid { grid-template-columns:minmax(0,1fr); }
+}
+@media print {
+  body { background:var(--gv-color-control-background); }
+  .catalog { padding:0; }
+  .catalog-nav,.catalog-index { display:none; }
+  .specimen { break-inside:avoid; }
+}
+
+</style>
+</head>
+<body class="gv" id="top">
+<main class="catalog">
+<header class="catalog-header">
+<h1>コンポーネントとトークン</h1>
+<p id="source-notice">これは見本の生成用テンプレートです。スキル内の scripts/render.mjs に --catalog と出力先を指定して生成してください。</p>
+<nav class="catalog-nav" aria-label="目次">
+<a class="gv-link" href="#primitives">基本部品</a><a class="gv-link" href="#compositions">組み合わせ</a><a class="gv-link" href="#collections">一覧</a><a class="gv-link" href="#screens">画面全体</a><a class="gv-link" href="#tokens">トークン</a><a class="gv-link" href="#usage">利用規範</a>
+</nav>
+</header>
+<nav class="catalog-index" id="catalog-index" aria-label="全コンポーネント"></nav>
+<div id="component-sections"></div>
+<section id="tokens" class="catalog-section"><h2>トークン</h2><div id="token-sections"></div></section>
+<section id="usage" class="catalog-section">
+<h2>利用規範</h2>
+<ul>
+<li>テーマ一覧とテーマ内の質問一覧を使い、質問ごとの詳細画面は設けない。</li>
+<li>質問の下に回答を置き、どちらも主領域の幅に合わせる。長い質問・選択肢を省略しない。</li>
+<li>選択肢は縦に並べる。選択中の項目を再クリックすると解除する。自由入力欄は常に置く。</li>
+<li>自由入力欄は折り返し・改行・画面幅の変化に応じて高さを変える。入力中に質問のDOMを作り直さない。</li>
+<li>回答件数はフッターだけに置き、回答をクリアする操作をコピーの左に置く。</li>
+<li>色・寸法の変更は tokens.css の役割名と用途ラベルで管理する。番号順の尺度や大小だけの名前を足さない。</li>
+<li>部品や操作の変更は共通定義で行う。見本にだけ選択・保存・コピーの別実装を作らない。</li>
+<li>回答は同じブラウザー・同じ保存場所での再開を基本とする。ファイル移動や別ブラウザーへの引継ぎは保証しない。</li>
+</ul>
+</section>
+<footer class="catalog-end"><a class="gv-link" href="#top">先頭へ</a></footer>
+</main>
+<!-- gv:scripts -->
+<!-- gv:token-data -->
+<script>
+(() => {
+  if (!globalThis.GrillingComponents) return;
+  document.getElementById('source-notice').hidden=true;
+  const C=GrillingComponents,A=GrillingAnswers;
+  const {el,uid,count}=C;
+  const {blank}=A;
+  const text=C['text'];
+  const radio=C['radio'];
+  const option=C['option'];
+  const input=C['input'];
+  const button=C['buttons'];
+  const filterButton=C['filter-button'];
+  const themeButton=C['theme-button'];
+  const badge=C['badge'];
+  const themeHeader=C['theme-header'];
+  const prompt=C['question-prompt'];
+  const optionGroup=C['option-group'];
+  const noteHeading=C['note-heading'];
+  const answerBlock=C['answer-block'];
+  const questionBlock=C['question-block'];
+  const filters=C['filters'];
+  const actions=C['actions'];
+  const manualCopy=C['manual-copy'];
+  const themeList=C['theme-list'];
+  const toolbar=C['toolbar'];
+  const footer=C['footer'];
+  const caseView=(name,node)=>el('div',{class:'sample-case'},el('span',{class:'case-name'},name),node);
+  const stack=(...nodes)=>el('div',{class:'sample-stack'},nodes);
+  const row=(...nodes)=>el('div',{class:'sample-row'},nodes);
+  const title='回答に複数の前提や理由を含めたいとき、その内容をどのように整理して書きたいですか？';
+  const longTitle=title+'\n今の状況を説明してから希望を書く場合と、満たしたい条件を一つずつ挙げる場合では、書きやすい形式が異なるかもしれません。';
+  const options=[
+    {id:'paragraph',label:'段落に分けて書きます。状況や前提を説明したあとに、自分の考えや希望を続けて書きたいです。'},
+    {id:'bullets',label:'箇条書きで書きます。満たしたい条件や気になっている点を、一つずつ分けて整理したいです。'},
+    {id:'free',label:'形式は決めずに書きます。短い一文でも長い説明でも、そのときの考えを自由に入力したいです。'}
+  ];
+  const note='まず現在の状況を書き、そのあとに希望と理由を整理したいです。\n選択肢だけでは伝わらない前提も残します。';
+  const question=(id='Q1',label=title,choices=options)=>({id,title:label,options:choices});
+
+  const themes=[
+    {id:'design',name:'grilling-viz の設計',description:'質問を見渡して、まとめて回答できる画面を設計します。',questions:[question('D1',longTitle),question('D2','質問はどのように並んでいると答えやすいですか？',[{id:'topic',label:'話題ごと'},{id:'priority',label:'重要なものから'},{id:'original',label:'提示された順番で'}])]},
+    {id:'writing',name:'記事の構成',description:'記事の読み手と、伝えたい内容を整理します。',questions:[question('W1','この記事を誰に読んでほしいですか？',[{id:'beginner',label:'初めて触れる人'},{id:'practitioner',label:'実務で使う人'},{id:'expert',label:'専門家'}])]}
+  ];
+
+  const sampleData={schemaVersion:A.schemaVersion,documentId:'component-samples',themes};
+  const sampleAnswers=A.createAnswers(sampleData,{copy:C.browserIO().copy});
+  sampleAnswers.update('design','D1',{choice:'paragraph',note});
+  const exampleText=sampleAnswers.format('design');
+  const copyInto=area=>C.copyInto(area,sampleAnswers,'design');
+  const examples=new Map([
+      ['text',()=>stack(caseView('テーマ名',text(themes[0].name,'gv-title')),caseView('質問文',text(title,'gv-question-title')),caseView('本文',text(note)),caseView('補助情報・ラベル',text('自由入力','gv-label')),caseView('リンク',el('a',{class:'gv-link',href:'#usage'},'利用規範')))],
+      ['radio',()=>row(...[['未選択',{}],['選択中',{checked:true}],['フォーカス',{preview:'focus'}],['無効',{disabled:true}],['選択中・無効',{checked:true,disabled:true}]].map(([label,attrs])=>caseView(label,radio({label,...attrs}))))],
+      ['option',()=>stack(...[['通常',{}],['選択中',{checked:true}],['ホバー',{preview:'hover'}],['フォーカス',{preview:'focus'}],['無効',{disabled:true}],['選択中・無効',{checked:true,disabled:true}]].map(([label,attrs])=>caseView(label,option(options[0].label,attrs))),caseView('長文・長いURL',option(options[1].label+' 共有する資料の場所も回答に含めます。https://example.com/research/grilling-viz/notes/abcdefghijklmnopqrstuvwxyz0123456789')))],
+      ['input',()=>stack(...[['未入力','',{}],['記入済み',note,{}],['ホバー','',{ 'data-preview':'hover'}],['フォーカス',note,{'data-preview':'focus'}],['読取り専用',note,{readonly:true}],['無効',note,{disabled:true}]].map(([label,value,attrs])=>caseView(label,input(value,attrs))))],
+      ['buttons',()=>{
+        const result=el('div',{role:'status'});
+        const groups=['primary','secondary'].map(kind=>caseView({primary:'主要操作',secondary:'副次操作'}[kind],row(...[['通常',{}],['ホバー',{'data-preview':'hover'}],['フォーカス',{'data-preview':'focus'}],['無効',{disabled:true}]].map(([label,attrs])=>{
+          const b=button(kind==='primary'?'回答をコピー':'回答をクリア',kind,attrs);
+          b.addEventListener('click',()=>{
+            if(kind==='primary')copyInto(result);
+            else result.replaceChildren();
+          });return caseView(label,b);
+        }))));
+        return stack(groups,caseView('処理中',button('コピー中…','primary',{disabled:true,'aria-busy':'true'})),result);
+      }],
+      ['filter-button',()=>row(caseView('通常',filterButton('未回答')),caseView('選択中',filterButton('すべて',true)),caseView('ホバー',filterButton('回答あり',false,{'data-preview':'hover'})),caseView('フォーカス',filterButton('未回答',false,{'data-preview':'focus'})))],
+      ['theme-button',()=>stack(caseView('通常',themeButton(themes[0])),caseView('選択中',themeButton(themes[0],true)),caseView('ホバー',themeButton(themes[1],false,{'data-preview':'hover'})),caseView('フォーカス',themeButton(themes[1],false,{'data-preview':'focus'})))],
+      ['badge',()=>row(caseView('未回答',badge()),caseView('回答あり',badge('answered')))],
+      ['metadata',()=>row(caseView('質問ID',text('D1','gv-small')),caseView('テーマの質問件数',text('質問 2件','gv-small')),caseView('回答件数',count(1,2)))],
+      ['messages',()=>stack(...Object.keys(C.messageLabels).map(code=>caseView(code,C.messages(code))))],
+      ['divider',()=>C.divider()],
+      ['theme-header',()=>themeHeader(themes[0])],
+      ['question-prompt',()=>prompt(question('D1',longTitle))],
+      ['option-group',()=>optionGroup(question())],
+      ['note-heading',()=>{const field=input('',{id:uid()});return el('div',{},noteHeading(field.id),field);}],
+      ['answer-block',()=>answerBlock(question())],
+      ['question-block',()=>stack(...[['未回答',blank()],['選択肢のみ',{choice:'paragraph',note:''}],['自由入力のみ',{choice:null,note}],['選択肢と自由入力',{choice:'paragraph',note}]].map(([label,a])=>caseView(label,questionBlock(question(),a))))],
+      ['filters',()=>filters()],
+      ['actions',()=>{
+        const feedback=el('div',{role:'status'});
+        return stack(caseView('回答あり',actions(true,()=>feedback.replaceChildren(),()=>copyInto(feedback))),caseView('未回答',actions(false)),feedback);
+      }],
+      ['manual-copy',()=>manualCopy(exampleText)],
+      ['clear-confirm',()=>{
+        const b=button('回答をクリア','secondary'),result=el('p',{class:'gv-small',role:'status'});
+        b.addEventListener('click',()=>{result.textContent=C['clear-confirm']('確認用の見本',()=>{})?'確認用の見本をクリアしました。':'キャンセルしました。';});
+        return stack(text('確認画面はブラウザー標準です。ボタンで実際の表示を確認できます。','gv-small'),b,result);
+      }],
+      ['theme-list',()=>themeList(themes)],
+      ['question-list',()=>C['question-list'](themes[0].questions)],
+      ['toolbar',()=>toolbar()],
+      ['footer',()=>{
+        const feedback=el('div',{role:'status'});
+        return stack(caseView('回答あり',footer(1,2,()=>feedback.replaceChildren(),()=>copyInto(feedback))),caseView('未回答',footer(0,2)),feedback);
+      }],
+      ['empty',()=>stack(...[['all','テーマに質問がない'],['open','未回答を選択'],['answered','回答ありを選択']].map(([key,label])=>caseView(label,C.empty(key))))],
+      ['noscript',()=>C.noscript()],
+      ['workspace',()=>{
+        const frame=C.workspace(sampleData);frame.id='interactive-workspace';
+        const toggle=button('狭い幅で見る','secondary',{'aria-pressed':'false'});
+        toggle.addEventListener('click',()=>{
+          const narrow=toggle.getAttribute('aria-pressed')!=='true';
+          toggle.setAttribute('aria-pressed',String(narrow));toggle.textContent=narrow?'元の幅に戻す':'狭い幅で見る';
+          frame.style.maxWidth=narrow?'24rem':'';
+        });
+        return stack(el('div',{},toggle),frame);
+      }]
+  ]);
+
+  const index=document.getElementById('catalog-index'),sections=document.getElementById('component-sections');
+  for(const [groupId,name,entries] of C.inventory) {
+    index.append(el('section',{},el('h2',{},el('a',{class:'gv-link',href:'#'+groupId},name)),el('ul',{},entries.map(([id,label])=>el('li',{},el('a',{href:'#component-'+id},label))))));
+    const group=el('section',{class:'catalog-section',id:groupId},el('h2',{},name));
+    for(const [id,label] of entries) {
+      if(!examples.has(id))throw new Error('見本がありません: '+id);
+      group.append(el('article',{class:'specimen',id:'component-'+id,'data-component':id},el('h3',{},label),
+        el('div',{class:'specimen-stage gv-viewport'+(['workspace','theme-header','question-list','toolbar','footer'].includes(id)?' flush':'')},examples.get(id)())));
+    }
+    sections.append(group);
+  }
+  const tokenMeta=Object.fromEntries(JSON.parse(document.getElementById('gv-token-data').textContent).map(token=>[token.name.slice(5),token]));
+  const tokenStyle=document.getElementById('gv-tokens').sheet.cssRules[0].style;
+  const computed=getComputedStyle(document.documentElement);
+  const tokenEntries=Array.from(tokenStyle).filter(key=>key.startsWith('--gv-'));
+  const categories=[
+    ['color','色'],['font','書体'],['type','文字サイズ（rem）'],
+    ['weight','文字の太さ（ウェイト）'],['leading','行高（文字サイズに対する倍率）'],
+    ['space','余白・間隔（rem）'],['shape','境界線・フォーカス・角丸（rem）'],['size','寸法・レイアウト（rem）']
+  ];
+  function tokenPreview(key) {
+    const name=key.slice(5),v='var('+key+')',kind=tokenMeta[name].kind;
+    if(kind==='color')return el('div',{class:'token-preview'},el('div',{class:'token-color',style:'background:'+v}));
+    if(['font','type','weight','leading'].includes(kind)) {
+      const prop={font:'font-family',type:'font-size',weight:'font-weight',leading:'line-height'}[kind];
+      return el('div',{class:'token-preview',style:prop+':'+v},kind==='leading'?el('div',{},'質問を読み、回答を書く。',el('br'),'長い文章もそのまま読む。'):'質問を読み、回答を書く。Aa 012');
+    }
+    if(name.startsWith('radius'))return el('div',{class:'token-preview'},el('div',{class:'token-shape',style:'border-radius:'+v}));
+    if(name.startsWith('border'))return el('div',{class:'token-preview'},el('div',{class:'token-shape',style:'border-width:'+v}));
+    if(name.startsWith('underline'))return el('div',{class:'token-preview'},filterButton('すべて',true));
+    if(name.startsWith('outline'))return el('div',{class:'token-preview'},el('div',{class:'token-shape',style:'outline:var(--gv-outline-focus-width) solid var(--gv-color-keyboard-focus);outline-offset:var(--gv-outline-focus-offset)'}));
+    if(name==='option-indicator-size')return el('div',{class:'token-preview'},radio({checked:true,label:'選択マークの大きさ'}));
+    if(name==='control-min-height'||name==='answer-input-min-height')return el('div',{class:'token-preview'},el('div',{class:'token-shape',style:'height:'+v}));
+    return el('div',{class:'token-preview'},el('div',{class:'token-measure',style:'width:'+v}));
+  }
+  const tokenContainer=document.getElementById('token-sections');
+  for(const [id,name] of categories) {
+    const grid=el('div',{class:'token-grid'});
+    for(const key of tokenEntries.filter(key=>tokenMeta[key.slice(5)].kind===id)) {
+      const declared=tokenStyle.getPropertyValue(key).trim(),resolved=computed.getPropertyValue(key).trim();
+      const value=id==='leading'?resolved+' 倍':id==='weight'?'ウェイト '+resolved:resolved;
+      const card=el('article',{class:'token','data-token':key},tokenPreview(key),el('h3',{},tokenMeta[key.slice(5)].label),el('code',{},key),el('output',{},value));
+      if(declared!==resolved)card.append(el('p',{class:'gv-small'},'参照：'+declared.replace(/^var\((.+)\)$/,'$1')));
+      grid.append(card);
+    }
+    tokenContainer.append(el('section',{class:'token-group',id:'tokens-'+id},el('h3',{},name),grid));
+  }
+
+  const conditions=Array.from(document.getElementById('gv-components').sheet.cssRules).filter(rule=>rule.conditionText);
+  document.getElementById('token-sections').append(el('section',{class:'token-group'},el('h3',{},'レスポンシブの切替条件'),
+    ...conditions.map(rule=>el('div',{class:'token'},el('code',{},rule.cssText.slice(0,rule.cssText.indexOf('{')).trim())))));
+  window.catalogInventory=C.inventory.map(([id,label,entries])=>({id,label,components:entries.map(([id,label])=>({id,label}))}));
+})();
+</script>
+</body>
+</html>

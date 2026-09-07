@@ -76,6 +76,16 @@
         "name": "mathbullet"
       },
       "license": "MIT"
+    },
+    {
+      "name": "grilling-viz",
+      "source": "./plugins/grilling-viz",
+      "description": "Turn grilling questions into self-contained HTML with selectable options, free-text answers, local persistence, and copy-and-paste handoff. Depends on grilling.",
+      "version": "1.0.0",
+      "author": {
+        "name": "mathbullet"
+      },
+      "license": "MIT"
     }
   ]
 }
