@@ -75,7 +75,12 @@
 .gv-filters { display: flex; gap: var(--gv-filter-gap); }
 .gv-toolbar { border-block: var(--gv-border-control-width) solid var(--gv-color-control-border); padding-inline: var(--gv-main-padding-inline); }
 .gv-actions { display: flex; flex-wrap: wrap; gap: var(--gv-inline-item-gap); }
-.gv-footer { display: flex; justify-content: space-between; align-items: center; gap: var(--gv-related-content-gap); flex-wrap: wrap; padding: var(--gv-related-content-gap) var(--gv-main-padding-inline); border-top: var(--gv-border-control-width) solid var(--gv-color-control-border); background: var(--gv-color-control-background); }
+.gv-footer { padding: var(--gv-related-content-gap) var(--gv-main-padding-inline); border-top: var(--gv-border-control-width) solid var(--gv-color-control-border); background: var(--gv-color-control-background); }
+.gv-footer-row { display: flex; justify-content: space-between; align-items: center; gap: var(--gv-related-content-gap); flex-wrap: wrap; }
+.gv-copy-result { min-width: 0; }
+.gv-copy-result:not(:empty) { margin-top: var(--gv-inline-item-gap); }
+.gv-copy-result > .gv-feedback { text-align: right; }
+.gv-copy-result > .gv-manual { padding: var(--gv-related-content-gap); border: var(--gv-border-control-width) solid var(--gv-color-control-border); border-radius: var(--gv-radius-control); }
 .gv-count { font-size: var(--gv-text-label); }
 .gv-feedback { font-size: var(--gv-text-label); color: var(--gv-color-primary-action); }
 .gv-error { color: var(--gv-color-error-message); }
@@ -93,7 +98,7 @@
   .gv-theme-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .gv-question,.gv-theme-header,.gv-toolbar,.gv-footer,.gv-manual { padding-inline: var(--gv-compact-page-padding); }
   .gv-filters { gap: var(--gv-related-content-gap); }
-  .gv-footer > .gv-actions { width: 100%; }
+  .gv-footer-row > .gv-actions { width: 100%; }
   .gv-footer .gv-button { flex: 1; }
 }
 

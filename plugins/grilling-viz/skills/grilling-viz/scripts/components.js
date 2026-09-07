@@ -164,7 +164,9 @@
     copy.addEventListener('click',onCopy);
     return el('div',{class:'gv-actions'},clear,copy);
   }
-  const footer=(answered=0,total=0,onClear,onCopy)=>el('footer',{class:'gv-footer'},count(answered,total),actions(answered>0,onClear,onCopy));
+  const footer=(answered=0,total=0,onClear,onCopy)=>el('footer',{class:'gv-footer'},
+    el('div',{class:'gv-footer-row'},count(answered,total),actions(answered>0,onClear,onCopy)),
+    el('div',{class:'gv-copy-result',role:'status','aria-live':'polite','aria-atomic':'true'}));
   function manualCopy(content) {
     const field=input(content,{readonly:true,'aria-label':'コピーする回答'});
     const select=button('全文を選択','secondary');
@@ -209,7 +211,6 @@
     for(const theme of data.themes) {
       const view=el('section',{'data-theme-id':theme.id,hidden:theme!==data.themes[0]});
       let filter='all',busy=false;
-      const feedback=el('div',{role:'status','aria-live':'polite'});
       const warning=el('div',{class:'gv-warning',role:'status'});
       const updateAnswer=(id,answer)=>{
         answers.update(theme.id,id,answer);
@@ -230,6 +231,7 @@
         await copyInto(feedback,answers,theme.id);
         busy=false;refresh();
       });
+      const feedback=foot.querySelector('.gv-copy-result');
       function refresh() {
         const n=answers.count(theme.id);
         foot.querySelector('.gv-count').textContent=count(n,theme.questions.length).textContent;
@@ -249,7 +251,7 @@
         warning.hidden=!answers.issues().length;
       }
       list.addEventListener('focusout',()=>queueMicrotask(refresh));
-      view.append(themeHeader(theme),toolbar(filter,value=>{filter=value;refresh();}),list,missing,foot,warning,feedback);
+      view.append(themeHeader(theme),toolbar(filter,value=>{filter=value;refresh();}),list,missing,foot,warning);
       views.set(theme.id,view);main.append(view);refresh();
     }
     return el('div',{class:'gv-viewport'},el('div',{class:'gv-workspace'},nav,main));

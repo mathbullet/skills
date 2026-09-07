@@ -180,8 +180,15 @@ body { margin:0; background:var(--gv-color-page-background); }
       ['question-list',()=>C['question-list'](themes[0].questions)],
       ['toolbar',()=>toolbar()],
       ['footer',()=>{
-        const feedback=el('div',{role:'status'});
-        return stack(caseView('回答あり',footer(1,2,()=>feedback.replaceChildren(),()=>copyInto(feedback))),caseView('未回答',footer(0,2)),feedback);
+        const example=(answered,content)=>{
+          const node=footer(answered,2,()=>feedback.replaceChildren(),()=>copyInto(feedback));
+          const feedback=node.querySelector('.gv-copy-result');
+          if(content)feedback.append(content);
+          return node;
+        };
+        return stack(caseView('回答あり',example(1)),caseView('コピー完了',example(1,C.messages('copied'))),
+          caseView('コピー中に回答を変更',example(1,C.messages('copy-changed'))),
+          caseView('自動コピーできないとき',example(1,manualCopy(exampleText))),caseView('未回答',example(0)));
       }],
       ['empty',()=>stack(...[['all','テーマに質問がない'],['open','未回答を選択'],['answered','回答ありを選択']].map(([key,label])=>caseView(label,C.empty(key))))],
       ['noscript',()=>C.noscript()],
