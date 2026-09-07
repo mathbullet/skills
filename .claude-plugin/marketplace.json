@@ -58,9 +58,9 @@
       "license": "MIT"
     },
     {
-      "name": "explain-via-html",
-      "source": "./plugins/explain-via-html",
-      "description": "Author an explainer as a self-contained single-page HTML file instead of a wall of Markdown prose. References thariqs.github.io/html-effectiveness as a working library of formats (concept explainers, comparison sheets, flowcharts, sandboxes, ...), and pins down a sidebar terms list, inline SVG figures, an opinionated style preset, and an html-expl/ output convention.",
+      "name": "html",
+      "source": "./plugins/html",
+      "description": "概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。",
       "version": "1.0.0",
       "author": {
         "name": "mathbullet"

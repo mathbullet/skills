@@ -1,47 +1,49 @@
-# mathbullet/skills [[🇯🇵](./README-ja.md)]
+# mathbullet/skills [[en](./README-en.md)]
 
-Agent Skills by [mathbullet](https://www.youtube.com/@mathbullet), distributed as a plugin marketplace.
+[mathbullet](https://www.youtube.com/@mathbullet) による Agent skills。
 
-Six of the skills focus on writing well-sourced Markdown deliverables and on producing explainers (either as Markdown or as a self-contained HTML page). They cross-reference each other: `survey` and `paper-details` build on top of `documenting-with-sources`, which in turn defers to `writing-quotation` for the formatting of quotation blocks. A separate skill, `ja-text-communication`, collects the principles for Japanese-language communication with the user and is meant to be consulted before writing any prose.
+## インストール
 
-## Install
+```bash
+npx skills add mathbullet/skills
+```
+
+特定の Skill だけをインストールする場合は、`--skill` で名前を指定する。
+
+```bash
+npx skills add mathbullet/skills --skill html
+```
+
+Claude Code では、プラグインマーケットプレイスからインストールすることもできる。
 
 ```
 /plugin marketplace add mathbullet/skills
-/plugin install writing-quotation@skills
-/plugin install documenting-with-sources@skills
-/plugin install survey@skills
-/plugin install paper-details@skills
-/plugin install explain@skills
-/plugin install explain-via-html@skills
-/plugin install ja-text-communication@skills
+/plugin install html@skills
 /plugin install grilling-viz@skills
 ```
 
-The skills auto-trigger based on the user's request — there are no slash commands to remember. Install only the ones you want.
+## Skills
 
-## Plugins
-
-| Plugin | Purpose |
+| Skill | 役割 |
 |---|---|
-| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | Formatting rules for quoting external sources inside a Markdown document. |
-| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | Common conventions for sourced-writing deliverables (citation, in-text references, source list, ban on fabricated associations). |
-| [survey](plugins/survey/skills/survey/SKILL.md) | Multi-source investigation skill that turns a topic into an indexed Markdown report. |
-| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | Produce a faithful detailed Markdown explainer of an academic paper (description, not critical review). |
-| [explain](plugins/explain/skills/explain/SKILL.md) | Conventions for writing a Markdown explainer of a concept or system. |
-| [explain-via-html](plugins/explain-via-html/skills/explain-via-html/SKILL.md) | Author an explainer as a self-contained single-page HTML file instead of a wall of Markdown. |
-| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | Principles for Japanese-language text communication with the user, consulted before writing any prose (term introduction, translation, anti-compression, references, logic, evidence, work reporting, context). |
-| [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md) | Turn grilling questions into self-contained HTML for batch answers with selectable options, free text, local persistence, and copy-and-paste handoff. Includes component and token previews. |
+| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | 外部ソースを引用する際の書式を統一する。 |
+| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | 典拠に基づく文書に共通する引用・文中参照・ソース一覧の規約を定める。 |
+| [survey](plugins/survey/skills/survey/SKILL.md) | 複数のソースを調査し、トピック別の索引を Markdown で作成する。 |
+| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | 論文の内容を忠実かつ詳細に解説する Markdown 文書を作成する。 |
+| [explain](plugins/explain/skills/explain/SKILL.md) | 概念や仕組みを説明する Markdown 文書の構成・記述規約を定める。 |
+| [html](plugins/html/skills/html/SKILL.md) | 概念・仕組み・調査内容を視覚的に説明する HTML 文書を作成・編集する。 |
+| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | 日本語でユーザーとやり取りする際の文章・用語・根拠提示の原則を定める。 |
+| [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md) | grilling の質問を自己完結したHTMLにし、選択肢と自由入力でまとめて回答・コピーする。回答の保存と、部品・トークンの見本を備える。 |
 
-## Dependencies between skills
+## Skills 間の依存関係
 
-- `survey` and `paper-details` follow the shared conventions in `documenting-with-sources`. Install `documenting-with-sources` whenever you install either of those.
-- `documenting-with-sources` defers to `writing-quotation` for the formatting of quotation blocks. Install `writing-quotation` whenever you install `documenting-with-sources`.
-- `survey`, `paper-details`, and `explain-via-html` also reference `writing-quotation` directly.
-- `grilling-viz` follows [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) for question composition; install it separately in the same agent environment. Its `render.mjs` generator uses only Node.js built-ins. Generated HTML runs independently of the skill.
+- `survey` と `paper-details` は `documenting-with-sources` の共通規約に従う。これらのいずれかをインストールするときは常に `documenting-with-sources` もインストールする。
+- `documenting-with-sources` は引用ブロックの書式について `writing-quotation` に委ねている。`documenting-with-sources` をインストールするときは常に `writing-quotation` もインストールする。
+- `survey` と `paper-details` も `writing-quotation` を直接参照している。
+- `grilling-viz` は質問構成を [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) に従って行う。同じエージェント環境に別途インストールする。HTMLを作るための `render.mjs` は Node.js の標準機能だけを使い、生成後のHTMLはスキルに依存せず動作する。
 
-The cross-references are by skill name and resolve once both skills are installed in the same Claude Code instance.
+相互参照は Skill 名で行われ、必要な Skills が同じエージェント環境にインストールされていれば解決する。
 
-## License
+## ライセンス
 
 MIT

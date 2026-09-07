@@ -1,0 +1,8 @@
+{
+  "name": "html",
+  "description": "概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  }
+}

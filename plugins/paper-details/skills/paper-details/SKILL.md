@@ -54,7 +54,7 @@ uv run {this-skill-dir}/scripts/extract_images.py <PDF path>
 - The script finds `Figure N` / `Table N` captions in the PDF and clip-renders the figure/table region directly above each caption — the bounding box of vector drawings, rules, and embedded images — at 300 dpi. Figures and tables are usually drawn as vectors with no embedded raster, so extraction is region rendering, not pulling out an embedded image.
 - Output defaults to `{project-root}/images-from-papers/` as `{paper-filename-base}-fig{N}.png` / `{paper-filename-base}-table{N}.png`. The extraction list is recorded in `{base}-manifest.json` in the same directory.
 - A multi-panel float (e.g. one Table float that contains panels (a)–(f)) is extracted as a single image, matching the single float in the paper.
-- After extraction, insert the images from `images-from-papers/` into the deliverable. In `.md`, reference them by relative path, e.g. `![Figure N](../images-from-papers/{base}-fig{N}.png)`. In a self-contained HTML (e.g. `explain-via-html`), embedding as a base64 data URI is acceptable.
+- After extraction, insert the images from `images-from-papers/` into the deliverable. In `.md`, reference them by relative path, e.g. `![Figure N](../images-from-papers/{base}-fig{N}.png)`. In an HTML deliverable created with `html`, embedding as a base64 data URI is acceptable.
 - Add the translated caption as a separate paragraph below the image. The caption text inside the image stays in the original language (it is not redrawn), so the translation goes outside the image.
 - If the script occasionally drops a figure/table or includes too much margin, raise `--dpi` or inspect the output and adjust the pymupdf clip rectangle for that item. Either way, do not abandon the image-extraction approach.
 
