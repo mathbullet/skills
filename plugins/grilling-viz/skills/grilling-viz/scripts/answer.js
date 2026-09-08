@@ -57,7 +57,7 @@
         answer.note.trim() ? '自由入力：' + answer.note : '',
       ].filter(Boolean).join('\n')];
     });
-    return entries.length ? ['# ' + theme.name, ...entries].join('\n\n') : '';
+    return entries.join('\n\n');
   }
 
   function createAnswers(data, io = {}) {
