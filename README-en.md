@@ -2,8 +2,6 @@
 
 Agent Skills by [mathbullet](https://www.youtube.com/@mathbullet), distributed as a plugin marketplace.
 
-Six of the skills focus on writing well-sourced Markdown deliverables and on producing explainers (either as Markdown or as an HTML document). They cross-reference each other: `survey` and `paper-details` build on top of `documenting-with-sources`, which in turn defers to `writing-quotation` for the formatting of quotation blocks. A separate skill, `ja-text-communication`, collects the principles for Japanese-language communication with the user and is meant to be consulted before writing any prose.
-
 ## Install
 
 ```
@@ -20,28 +18,23 @@ Six of the skills focus on writing well-sourced Markdown deliverables and on pro
 
 The skills auto-trigger based on the user's request — there are no slash commands to remember. Install only the ones you want.
 
-## Plugins
+## Skills
 
-| Plugin | Purpose |
-|---|---|
-| [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md) | Formatting rules for quoting external sources inside a Markdown document. |
-| [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md) | Common conventions for sourced-writing deliverables (citation, in-text references, source list, ban on fabricated associations). |
-| [survey](plugins/survey/skills/survey/SKILL.md) | Multi-source investigation skill that turns a topic into an indexed Markdown report. |
-| [paper-details](plugins/paper-details/skills/paper-details/SKILL.md) | Produce a faithful detailed Markdown explainer of an academic paper (description, not critical review). |
-| [explain](plugins/explain/skills/explain/SKILL.md) | Conventions for writing a Markdown explainer of a concept or system. |
-| [html](plugins/html/skills/html/SKILL.md) | Create and edit visual explainer documents as HTML files. |
-| [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md) | Principles for Japanese-language text communication with the user, consulted before writing any prose (term introduction, translation, anti-compression, references, logic, evidence, work reporting, context). |
-| [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md) | Turn grilling questions into self-contained HTML for batch answers with selectable options, free text, local persistence, and copy-and-paste handoff. Includes component and token previews. |
+<!-- skills:start -->
+- [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md)：Common conventions for writing Markdown documents that cite external sources (survey reports, paper explainers, and any deliverable that surfaces facts from outside).
+- [explain](plugins/explain/skills/explain/SKILL.md)：Conventions for writing a Markdown explainer that walks the reader through a concept or system.
+- [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md)：grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
+- [html](plugins/html/skills/html/SKILL.md)：概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。
+- [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md)：ユーザーとのあらゆるコミュニケーションの最初に、何かを書く・出力する前に必ず参照すること。
+- [paper-details](plugins/paper-details/skills/paper-details/SKILL.md)：Produce a detailed Markdown explainer of an academic paper.
+- [survey](plugins/survey/skills/survey/SKILL.md)：Investigate a topic across papers, articles, social-media posts, and industry signals, then deliver an indexed Markdown report.
+- [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md)：Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document.
+<!-- skills:end -->
 
-## Dependencies between skills
-
-- `survey` and `paper-details` follow the shared conventions in `documenting-with-sources`. Install `documenting-with-sources` whenever you install either of those.
-- `documenting-with-sources` defers to `writing-quotation` for the formatting of quotation blocks. Install `writing-quotation` whenever you install `documenting-with-sources`.
-- `survey` and `paper-details` also reference `writing-quotation` directly.
-- `grilling-viz` follows [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) for question composition; install it separately in the same agent environment. Its `render.mjs` generator uses only Node.js built-ins. Generated HTML runs independently of the skill.
-
-The cross-references are by skill name and resolve once both skills are installed in the same Claude Code instance.
-
-## License
-
-MIT
+<a href="https://www.star-history.com/?repos=mathbullet%2Fskills&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mathbullet/skills&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mathbullet/skills&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mathbullet/skills&type=date&legend=top-left" />
+ </picture>
+</a>
