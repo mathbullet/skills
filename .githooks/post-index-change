@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+if [ "${SKILLS_README_SYNC_ACTIVE:-}" = "1" ] || [ "${1:-0}" = "1" ]; then
+  exit 0
+fi
+exec node scripts/update-readme.mjs --staged
