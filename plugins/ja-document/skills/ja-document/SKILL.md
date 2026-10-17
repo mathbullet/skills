@@ -3,7 +3,7 @@ name: ja-document
 description: 日本語の文書を書くときの規範
 ---
 
-shared の規範は、どの文書にも従う。summary の規範は原文の要点をまとめる文書に、details の規範は論文の詳細解説に従う。documenting-with-sources と writing-quotation の2スキルが必要。
+shared の規範は、どの文書でも適用される。summary の規範は原文の要点をまとめる文書で、details の規範は論文の詳細解説で適用される。documenting-with-sources と writing-quotation の2スキルが必要。
 
 ## shared
 
@@ -14,7 +14,7 @@ shared の規範は、どの文書にも従う。summary の規範は原文の�
 - [reference/shared/math.md](reference/shared/math.md)：数式を伴う説明の構成、数式表記、変数一覧
 - [reference/shared/figure.md](reference/shared/figure.md)：図の描き方と、論文の図表の抽出と挿入
 - [reference/shared/fonts.md](reference/shared/fonts.md)：文書と図で使う書体
-- [reference/shared/terms.md](reference/shared/terms.md)：対訳表。利用者が各々で設定する
+- `reference/shared/terms.md`：対訳表。利用者が各々で設定する
 
 ## summary
 
@@ -32,4 +32,4 @@ shared の規範は、どの文書にも従う。summary の規範は原文の�
 
 文書は、既定ではプロジェクトルート直下の `reports/` に作成する。ディレクトリがなければ作る。ユーザーが出力先を指定した場合は、それに従う。
 
-このスキルを使って文書を作成したら、[history.jsonl](history.jsonl) に1行を追加する。各行は、作成日（`date`）、文書の題（`title`）、文書の絶対パス（`path`）、原文の URL（`source`、ない場合は `null`）を持つ JSON オブジェクトとする。
+このスキルを使って文書を作成したら、`history.jsonl` に1行を追加する。各行は、作成日（`date`）、文書の題（`title`）、文書の絶対パス（`path`）、原文の URL（`source`、ない場合は `null`）を持つ JSON オブジェクトとする。
