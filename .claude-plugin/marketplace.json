@@ -38,26 +38,6 @@
       "license": "MIT"
     },
     {
-      "name": "paper-details",
-      "source": "./plugins/paper-details",
-      "description": "Produce a faithful detailed explainer of an academic paper as a Markdown document. Section structure mirrors the paper, equations render as LaTeX with explicit variable definitions, citations to the paper under review use position only, citations to other works use author-short form. The skill is for description, not critical review. Depends on documenting-with-sources and writing-quotation.",
-      "version": "1.0.0",
-      "author": {
-        "name": "mathbullet"
-      },
-      "license": "MIT"
-    },
-    {
-      "name": "explain",
-      "source": "./plugins/explain",
-      "description": "Conventions for writing a Markdown explainer of a concept or system. Term list up front in table form, Mermaid for diagrams, explicit subjects and verbs, no glossed-over hops, and a fixed structure (terms / background / mechanism / procedure / current state).",
-      "version": "1.0.0",
-      "author": {
-        "name": "mathbullet"
-      },
-      "license": "MIT"
-    },
-    {
       "name": "html",
       "source": "./plugins/html",
       "description": "概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。",
