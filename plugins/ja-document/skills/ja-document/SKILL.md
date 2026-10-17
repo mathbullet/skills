@@ -3,9 +3,11 @@ name: ja-document
 description: 日本語の文書を書くときの規範
 ---
 
-shared の規範は、どの文書でも適用される。summary の規範は原文の要点をまとめる文書で、details の規範は論文の詳細解説で適用される。documenting-with-sources と writing-quotation の2スキルが必要。
+documenting-with-sources と writing-quotation の2スキルが必要。
 
 ## shared
+
+どの文書でも適用される。
 
 - [reference/shared/translation.md](reference/shared/translation.md)：訳語の決め方、専門用語の示し方
 - [reference/shared/sentence.md](reference/shared/sentence.md)：文の組み立て方、文末と表記
@@ -18,11 +20,15 @@ shared の規範は、どの文書でも適用される。summary の規範は�
 
 ## summary
 
+原文の要点をまとめる文書で適用される。
+
 - [reference/summary/structure.md](reference/summary/structure.md)：文書の構成
 - [reference/summary/argument-flow.md](reference/summary/argument-flow.md)：文書の冒頭に置く「議論の流れ」の置き方と書き方
 - [reference/summary/source-fidelity.md](reference/summary/source-fidelity.md)：原文の修辞と比喩の扱い
 
 ## details
+
+論文の詳細解説で適用される。
 
 - [reference/details/structure.md](reference/details/structure.md)：文書の構成、箇条書きと地の文の使い分け
 - [reference/details/quotation.md](reference/details/quotation.md)：引用ブロックを主体とした構成と、出所参照の書式
