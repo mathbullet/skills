@@ -5,6 +5,8 @@ description: 日本語の文書を書くときの規範
 
 documenting-with-sources と writing-quotation の2スキルが必要。
 
+どの粒度で文書化するか（summary、details）が指定されなかった場合は、書き始める前にユーザーに尋ねる。
+
 ## shared
 
 どの文書でも適用される。
