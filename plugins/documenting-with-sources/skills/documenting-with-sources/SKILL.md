@@ -1,6 +1,6 @@
 ---
 name: documenting-with-sources
-description: Common conventions for writing Markdown documents that cite external sources (survey reports, paper explainers, and any deliverable that surfaces facts from outside). Defines mandatory citation, in-text reference format, quotation-versus-prose separation, the ban on fabricated associations, and the source-list format. Referenced by survey, paper-details, and any skill that produces sourced output.
+description: Common conventions for writing Markdown documents that cite external sources (survey reports, paper explainers, and any deliverable that surfaces facts from outside). Defines mandatory citation, in-text reference format, quotation-versus-prose separation, the ban on fabricated associations, and the source-list format. Referenced by survey, ja-document, and any skill that produces sourced output.
 ---
 
 # Documenting with Sources

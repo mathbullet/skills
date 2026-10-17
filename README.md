@@ -29,6 +29,7 @@ Claude Code では、プラグインマーケットプレイスからインス�
 - [explain](plugins/explain/skills/explain/SKILL.md)：Conventions for writing a Markdown explainer that walks the reader through a concept or system.
 - [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md)：grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
 - [html](plugins/html/skills/html/SKILL.md)：概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。
+- [ja-document](plugins/ja-document/skills/ja-document/SKILL.md)：日本語の文書を書くときの規範
 - [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md)：ユーザーとのあらゆるコミュニケーションの最初に、何かを書く・出力する前に必ず参照すること。
 - [paper-details](plugins/paper-details/skills/paper-details/SKILL.md)：Produce a detailed Markdown explainer of an academic paper.
 - [survey](plugins/survey/skills/survey/SKILL.md)：Investigate a topic across papers, articles, social-media posts, and industry signals, then deliver an indexed Markdown report.

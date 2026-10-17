@@ -1,11 +1,11 @@
 ---
 name: writing-quotation
-description: Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document. Quotations always live in fenced code blocks (never the `>` blockquote syntax), original and translation sit together, source references go on the line after the fence, and bare numeric references like `[1]` are forbidden. Other sourced-writing skills (survey, paper-details, ...) reference this skill. Consult whenever you write or edit a quotation block.
+description: Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document. Quotations always live in fenced code blocks (never the `>` blockquote syntax), original and translation sit together, source references go on the line after the fence, and bare numeric references like `[1]` are forbidden. Other sourced-writing skills (survey, ja-document, ...) reference this skill. Consult whenever you write or edit a quotation block.
 ---
 
 # Writing Quotation
 
-Formatting rules for quoting external sources inside a Markdown document. Other skills that produce sourced deliverables (`survey`, `paper-details`, and similar) reference this one.
+Formatting rules for quoting external sources inside a Markdown document. Other skills that produce sourced deliverables (`survey`, `ja-document`, and similar) reference this one.
 
 ## 1. Why quote the original
 
@@ -157,4 +157,4 @@ Fix: separate original and translation with one blank line. No horizontal rule.
 This skill defines the format of quotations only. *When* to quote (Assertion-Evidence ordering, what label to use, etc.) is decided by the calling skill.
 
 - `survey`: Assertion-Evidence ordering — state the claim in prose first, then back it up with a quotation. The `label` slot holds the publication or source name.
-- `paper-details`: References to the paper under review omit the author and use position only (`[p.X, Section Y.Z]`). References to other works use `[author-short (YYYY/MM)]`.
+- `ja-document` (detailed paper explainers): References to the paper under review omit the author and use position only (`[p.X, Section Y.Z]`). References to other works use `[author-short (YYYY/MM)]`.
