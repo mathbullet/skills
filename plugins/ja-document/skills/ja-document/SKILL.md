@@ -20,7 +20,7 @@ documenting-with-sources と writing-quotation の2スキルが必要。
 
 ## summary
 
-原文の要点をまとめる文書で適用される。
+要点をまとめる文書で適用される。
 
 - [reference/summary/structure.md](reference/summary/structure.md)：文書の構成
 - [reference/summary/argument-flow.md](reference/summary/argument-flow.md)：文書の冒頭に置く「議論の流れ」の置き方と書き方
