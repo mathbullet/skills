@@ -20,7 +20,7 @@
     {
       "name": "documenting-with-sources",
       "source": "./plugins/documenting-with-sources",
-      "description": "Common conventions for writing Markdown documents that cite outside sources. Defines mandatory citations, in-text reference format, separation of quotation from prose, the ban on fabricated associations, and the source-list format. Used by survey, ja-document, and other sourced-writing skills.",
+      "description": "Common conventions for writing Markdown documents that cite outside sources. Defines mandatory citations, in-text reference format, separation of quotation from prose, the ban on fabricated associations, and the source-list format. Used by survey, ja-explainer, and other sourced-writing skills.",
       "version": "1.0.0",
       "author": {
         "name": "mathbullet"
@@ -48,9 +48,9 @@
       "license": "MIT"
     },
     {
-      "name": "ja-document",
-      "source": "./plugins/ja-document",
-      "description": "日本語の文書を書くときの規範",
+      "name": "ja-explainer",
+      "source": "./plugins/ja-explainer",
+      "description": "論文や記事を日本語で要約・解説する文書の規範",
       "version": "1.0.0",
       "author": {
         "name": "mathbullet"

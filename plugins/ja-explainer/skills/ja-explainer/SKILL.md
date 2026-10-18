@@ -1,6 +1,6 @@
 ---
-name: ja-document
-description: 日本語の文書を書くときの規範
+name: ja-explainer
+description: 論文や記事を日本語で要約・解説する文書の規範
 ---
 
 documenting-with-sources と writing-quotation の2スキルが必要。

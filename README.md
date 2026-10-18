@@ -28,7 +28,7 @@ Claude Code では、プラグインマーケットプレイスからインス�
 - [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md)：Common conventions for writing Markdown documents that cite external sources (survey reports, paper explainers, and any deliverable that surfaces facts from outside).
 - [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md)：grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
 - [html](plugins/html/skills/html/SKILL.md)：概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。
-- [ja-document](plugins/ja-document/skills/ja-document/SKILL.md)：日本語の文書を書くときの規範
+- [ja-explainer](plugins/ja-explainer/skills/ja-explainer/SKILL.md)：論文や記事を日本語で要約・解説する文書の規範
 - [ja-text-communication](plugins/ja-text-communication/skills/ja-text-communication/SKILL.md)：ユーザーとのあらゆるコミュニケーションの最初に、何かを書く・出力する前に必ず参照すること。
 - [survey](plugins/survey/skills/survey/SKILL.md)：Investigate a topic across papers, articles, social-media posts, and industry signals, then deliver an indexed Markdown report.
 - [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md)：Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document.
