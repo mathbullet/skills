@@ -1,7 +1,7 @@
 ---
 name: grilling-viz
 description: >
-  grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。grilling の質問に HTML 上でまとめて回答したいと依頼されたときに使う。
+  grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
 ---
 
 # Grilling Viz

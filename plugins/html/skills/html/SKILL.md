@@ -1,6 +1,6 @@
 ---
 name: html
-description: 概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。概念や仕組みの説明、調査結果のまとめを HTML で作るよう依頼されたとき、または既存の説明用 HTML を編集するときに使う。
+description: 概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。
 ---
 
 # HTML による説明ドキュメント
@@ -9,7 +9,7 @@ description: 概念・仕組み・調査内容を、HTML による視覚的な�
 
 説明内容と日本語表現を補うため、次のスキルの併用を推奨する。
 
-- `ja-explainer`：論文や記事の内容を、日本語の要約や詳細解説の文書にまとめるときの規範
+- `ja-explainer`：日本語の文書を書くときの規範
 - [`japanese-tech-writing`](https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d)：日本語の技術文書、記事、解説文の構成と文章規範
 - [`cognitive-rhythm-writing`](https://gist.github.com/k16shikano/eb2929f13ed19c97188393d297be8432)：読み物としての緩急が必要な長文の文章規範
 
