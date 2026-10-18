@@ -9,7 +9,7 @@ description: 概念・仕組み・調査内容を、HTML による視覚的な�
 
 説明内容と日本語表現を補うため、次のスキルの併用を推奨する。
 
-- `ja-explainer`：日本語の文書を書くときの規範
+- `ja-explainer`：論文や記事を日本語で要約・解説する文書の規範
 - [`japanese-tech-writing`](https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d)：日本語の技術文書、記事、解説文の構成と文章規範
 - [`cognitive-rhythm-writing`](https://gist.github.com/k16shikano/eb2929f13ed19c97188393d297be8432)：読み物としての緩急が必要な長文の文章規範
 
