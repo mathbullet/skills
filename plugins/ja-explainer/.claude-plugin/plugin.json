@@ -1,6 +1,6 @@
 {
   "name": "ja-explainer",
-  "description": "日本語の文書を書くときの規範",
+  "description": "論文や記事の内容を、日本語の要約や詳細解説の文書にまとめるときの規範",
   "version": "1.0.0",
   "author": {
     "name": "mathbullet"

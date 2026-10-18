@@ -1,6 +1,6 @@
 ---
 name: ja-explainer
-description: 日本語の文書を書くときの規範
+description: 論文や記事の内容を、日本語の要約や詳細解説の文書にまとめるときの規範。論文や記事を日本語で要約・解説するよう依頼されたときに使う。
 ---
 
 documenting-with-sources と writing-quotation の2スキルが必要。
