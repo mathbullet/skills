@@ -6,15 +6,14 @@
   --mb-ink: #111110;
   --mb-ink-body: #1A1A1A;
   --mb-border: #111110;
-  --mb-rule: #DFDFDF;
   --mb-muted: #595959;
   --mb-faint: #A5A5A5;
   --mb-link: #2990DA;
   --mb-accent: #D63A2F;
   --mb-font-sans: "Ubuntu Sans", "Noto Sans JP", sans-serif;
-  --mb-font-mono: "UbuntuMono Nerd Font", "Ubuntu Mono", monospace;
-  --mb-radius: 12px;
+  --mb-font-mono: "Ubuntu Mono", monospace;
   --mb-border-w: 1.5px;
+  --mb-box-border-w: 3px;
 }
 
 * { box-sizing: border-box; }
@@ -62,7 +61,7 @@ aside.mb-glossary {
   max-height: calc(100vh - 48px);
   overflow-y: auto;
   padding-left: 24px;
-  border-left: var(--mb-border-w) solid var(--mb-rule);
+  border-left: var(--mb-border-w) solid var(--mb-ink);
 }
 
 @media (max-width: 1399px) {
@@ -82,7 +81,7 @@ aside.mb-glossary {
     border-left: none;
     margin-top: 56px;
     padding-top: 24px;
-    border-top: var(--mb-border-w) solid var(--mb-rule);
+    border-top: var(--mb-border-w) solid var(--mb-ink);
   }
 }
 
@@ -146,7 +145,6 @@ h3 {
 
 .mb-meta-line {
   margin: 4px 0 0;
-  font-family: var(--mb-font-mono);
   font-size: 13px;
   color: var(--mb-muted);
 }
@@ -196,7 +194,7 @@ ul ul > li::before {
 
 hr {
   border: none;
-  border-top: var(--mb-border-w) solid var(--mb-rule);
+  border-top: var(--mb-border-w) solid var(--mb-ink);
   margin: 40px 0;
 }
 
@@ -204,8 +202,7 @@ hr {
 
 .mb-card {
   background: var(--mb-surface);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: var(--mb-radius);
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 20px 24px;
   margin: 20px 0;
 }
@@ -253,8 +250,7 @@ hr {
 
 .mb-summary {
   background: var(--mb-surface);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: var(--mb-radius);
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 20px 24px;
   margin: 24px 0;
 }
@@ -274,8 +270,7 @@ hr {
 
 nav.mb-toc {
   background: var(--mb-surface);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: var(--mb-radius);
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 16px 24px;
   margin: 24px 0;
 }
@@ -291,7 +286,6 @@ nav.mb-toc > ol > li { counter-increment: toc; }
 
 nav.mb-toc > ol > li::before {
   content: counter(toc, decimal-leading-zero);
-  font-family: var(--mb-font-mono);
   color: var(--mb-muted);
   margin-right: 0.8em;
 }
@@ -301,12 +295,11 @@ nav.mb-toc ol ol { padding-left: 2.6em; }
 nav.mb-toc a { color: var(--mb-ink-body); }
 nav.mb-toc a:hover { color: var(--mb-link); }
 
-/* ---- チップ（角丸の小ラベル） ------------------------------------------ */
+/* ---- チップ（枠付きの小ラベル） --------------------------------------- */
 
 .mb-chip {
   display: inline-block;
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: 8px;
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 0 0.6em;
   font-size: 14px;
   line-height: 1.7;
@@ -319,8 +312,7 @@ nav.mb-toc a:hover { color: var(--mb-link); }
 
 blockquote.mb-quote {
   background: var(--mb-surface);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: var(--mb-radius);
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 20px 28px;
   margin: 24px 0;
 }
@@ -341,13 +333,12 @@ blockquote.mb-quote .mb-quote-original {
 }
 
 blockquote.mb-quote .mb-quote-ja {
-  border-top: var(--mb-border-w) solid var(--mb-rule);
+  border-top: var(--mb-border-w) solid var(--mb-ink);
   padding-top: 14px;
   margin: 0;
 }
 
 blockquote.mb-quote .mb-quote-source {
-  font-family: var(--mb-font-mono);
   font-size: 13px;
   margin: 12px 0 0;
 }
@@ -361,10 +352,11 @@ table {
   background: var(--mb-surface);
   font-size: 14.5px;
   line-height: 1.7;
+  border-top: var(--mb-border-w) solid var(--mb-ink);
+  border-bottom: var(--mb-border-w) solid var(--mb-ink);
 }
 
 th, td {
-  border: var(--mb-border-w) solid var(--mb-rule);
   padding: 8px 12px;
   text-align: left;
   vertical-align: top;
@@ -373,8 +365,11 @@ th, td {
 
 th {
   color: var(--mb-ink);
-  border-bottom: var(--mb-border-w) solid var(--mb-border);
   background: var(--mb-surface);
+}
+
+thead th, tbody:first-child > tr:first-child > th {
+  border-bottom: var(--mb-border-w) solid var(--mb-ink);
 }
 
 /* 行見出しのラベル列。折り返しを禁止し、残り幅を本文列へ譲る */
@@ -392,7 +387,7 @@ aside.mb-glossary dl { margin: 0; }
 aside.mb-glossary dt {
   margin: 0;
   padding-top: 10px;
-  border-top: var(--mb-border-w) solid var(--mb-rule);
+  border-top: var(--mb-border-w) solid var(--mb-ink);
   color: var(--mb-ink);
   font-size: 13.5px;
   font-weight: 700;
@@ -415,14 +410,12 @@ code, kbd, samp {
 
 p code, li code, td code {
   background: #F1EFE9;
-  border-radius: 5px;
   padding: 0.08em 0.35em;
 }
 
 pre {
   background: var(--mb-surface);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: var(--mb-radius);
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 16px 20px;
   overflow-x: auto;
   line-height: 1.6;
@@ -501,11 +494,9 @@ figure.mb-figure img {
   height: auto;
   display: block;
   margin: 0 auto;
-  border-radius: 6px;
 }
 
 figure.mb-figure figcaption {
-  font-family: var(--mb-font-mono);
   font-size: 13px;
   color: var(--mb-muted);
   margin-top: 8px;
@@ -514,8 +505,7 @@ figure.mb-figure figcaption {
 
 .mb-figure-frame {
   background: var(--mb-surface);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: var(--mb-radius);
+  border: var(--mb-box-border-w) solid var(--mb-border);
   padding: 24px;
 }
 
@@ -605,7 +595,6 @@ pre.mb-diff .ctx::before { content: " "; }
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.85em;
-    font-family: var(--mb-font-mono);
     word-break: break-all;
   }
 }
@@ -618,18 +607,16 @@ pre.mb-diff .ctx::before { content: " "; }
 }
 
 .mb-math-copy {
-  font-family: var(--mb-font-mono);
   font-size: 12px;
   line-height: 1.5;
   padding: 1px 8px;
   background: var(--mb-surface);
   color: var(--mb-ink);
-  border: var(--mb-border-w) solid var(--mb-border);
-  border-radius: 8px;
+  border: var(--mb-box-border-w) solid var(--mb-border);
   cursor: pointer;
 }
 
-.mb-math-copy:hover { background: var(--mb-rule); }
+.mb-math-copy:hover { background: var(--mb-ink); color: var(--mb-surface); }
 
 .mb-math-block > .mb-math-copy {
   position: absolute;
