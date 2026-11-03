@@ -42,7 +42,7 @@
 <div class="mb-summary">
   <ul>
     <li>背景はオフホワイト <code>#FAF9F6</code>、部品は白地 + 黒罫線で浮かせ、角丸を使わない</li>
-    <li>自然言語は英字を Ubuntu Sans、日本語を Noto Sans JP、コードは Ubuntu Mono で統一する</li>
+    <li>自然言語は英字を Ubuntu Sans、日本語を Noto Sans JP、コードとその実行結果は Ubuntu Mono で統一する</li>
     <li>有彩色はリンク青 <code>#2990DA</code> とアクセント赤 <code>#D63A2F</code> の2色のみ。赤は1ページに1箇所まで</li>
   </ul>
 </div>
@@ -65,7 +65,6 @@
   <tr><td><code>--mb-surface</code></td><td><code>#FFFFFF</code></td><td>カード・表などの面</td></tr>
   <tr><td><code>--mb-ink</code></td><td><code>#111110</code></td><td>見出し・強調・罫線（黒）</td></tr>
   <tr><td><code>--mb-ink-body</code></td><td><code>#1A1A1A</code></td><td>本文の文字色（墨色）</td></tr>
-  <tr><td><code>--mb-rule</code></td><td><code>#DFDFDF</code></td><td>構造だけを示す薄い罫線</td></tr>
   <tr><td><code>--mb-muted</code></td><td><code>#595959</code></td><td>補助テキスト</td></tr>
   <tr><td><code>--mb-faint</code></td><td><code>#A5A5A5</code></td><td>フッターなど最弱の文字</td></tr>
   <tr><td><code>--mb-link</code></td><td><code>#2990DA</code></td><td>リンク・URL</td></tr>
@@ -88,7 +87,7 @@
 <p>
 字体は2系統だけです。自然言語（見出し・本文・補助テキスト）は
 <span style="white-space: nowrap">Ubuntu Sans + Noto Sans JP</span>、
-コード・URL・日付などのメタ情報は
+コードとその実行結果は
 <span style="white-space: nowrap">Ubuntu Mono</span>。
 欧文と和文が混ざる本文では、欧文グリフが Ubuntu Sans、和文グリフが Noto Sans JP で描画されます。
 </p>
@@ -136,8 +135,8 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
 
 <p>
 外部の発言・文書の引用は引用カードに入れます。原文と日本語訳は同じカード内で上下に並べ、
-間をグレーの罫線で区切ります。訳の文字サイズ・色は原文と同一にします（訳だけ小さくする・薄くするのは禁止）。
-出所はカード末尾に等幅で書きます。
+間を黒の罫線で区切ります。訳の文字サイズ・色は原文と同一にします（訳だけ小さくする・薄くするのは禁止）。
+出所はカード末尾に書きます。
 </p>
 
 <blockquote class="mb-quote">
@@ -202,7 +201,7 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
 
 <pre class="mb-diff"><code class="nohighlight"><span class="ctx">.mb-quote-ja {</span>
 <span class="del">  font-size: 14.5px;</span>
-<span class="add">  border-top: var(--mb-border-w) solid var(--mb-rule);</span>
+<span class="add">  border-top: var(--mb-border-w) solid var(--mb-ink);</span>
 <span class="ctx">}</span></code></pre>
 
 <p>
@@ -239,7 +238,7 @@ head から CSS、数式コピー用 JavaScript、MathJax、Highlight.js の順�
     <dt>チップ</dt>
     <dd>黒罫線の枠で囲んだ小さなラベル。並列の固有名の列挙に使う。</dd>
     <dt>等幅フォント</dt>
-    <dd>全文字が同じ幅を持つ字体。コード・URL・日付などのメタ情報に使う。</dd>
+    <dd>全文字が同じ幅を持つ字体。コードとその実行結果にだけ使う。</dd>
     <dt>MathJax</dt>
     <dd>ブラウザ上で数式を組版するJavaScriptライブラリ。</dd>
     <dt>読みやすい差分</dt>

@@ -6,7 +6,6 @@
   --mb-ink: #111110;
   --mb-ink-body: #1A1A1A;
   --mb-border: #111110;
-  --mb-rule: #DFDFDF;
   --mb-muted: #595959;
   --mb-faint: #A5A5A5;
   --mb-link: #2990DA;
@@ -62,7 +61,7 @@ aside.mb-glossary {
   max-height: calc(100vh - 48px);
   overflow-y: auto;
   padding-left: 24px;
-  border-left: var(--mb-border-w) solid var(--mb-rule);
+  border-left: var(--mb-border-w) solid var(--mb-ink);
 }
 
 @media (max-width: 1399px) {
@@ -82,7 +81,7 @@ aside.mb-glossary {
     border-left: none;
     margin-top: 56px;
     padding-top: 24px;
-    border-top: var(--mb-border-w) solid var(--mb-rule);
+    border-top: var(--mb-border-w) solid var(--mb-ink);
   }
 }
 
@@ -146,7 +145,6 @@ h3 {
 
 .mb-meta-line {
   margin: 4px 0 0;
-  font-family: var(--mb-font-mono);
   font-size: 13px;
   color: var(--mb-muted);
 }
@@ -196,7 +194,7 @@ ul ul > li::before {
 
 hr {
   border: none;
-  border-top: var(--mb-border-w) solid var(--mb-rule);
+  border-top: var(--mb-border-w) solid var(--mb-ink);
   margin: 40px 0;
 }
 
@@ -288,7 +286,6 @@ nav.mb-toc > ol > li { counter-increment: toc; }
 
 nav.mb-toc > ol > li::before {
   content: counter(toc, decimal-leading-zero);
-  font-family: var(--mb-font-mono);
   color: var(--mb-muted);
   margin-right: 0.8em;
 }
@@ -336,13 +333,12 @@ blockquote.mb-quote .mb-quote-original {
 }
 
 blockquote.mb-quote .mb-quote-ja {
-  border-top: var(--mb-border-w) solid var(--mb-rule);
+  border-top: var(--mb-border-w) solid var(--mb-ink);
   padding-top: 14px;
   margin: 0;
 }
 
 blockquote.mb-quote .mb-quote-source {
-  font-family: var(--mb-font-mono);
   font-size: 13px;
   margin: 12px 0 0;
 }
@@ -391,7 +387,7 @@ aside.mb-glossary dl { margin: 0; }
 aside.mb-glossary dt {
   margin: 0;
   padding-top: 10px;
-  border-top: var(--mb-border-w) solid var(--mb-rule);
+  border-top: var(--mb-border-w) solid var(--mb-ink);
   color: var(--mb-ink);
   font-size: 13.5px;
   font-weight: 700;
@@ -501,7 +497,6 @@ figure.mb-figure img {
 }
 
 figure.mb-figure figcaption {
-  font-family: var(--mb-font-mono);
   font-size: 13px;
   color: var(--mb-muted);
   margin-top: 8px;
@@ -600,7 +595,6 @@ pre.mb-diff .ctx::before { content: " "; }
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.85em;
-    font-family: var(--mb-font-mono);
     word-break: break-all;
   }
 }
@@ -613,7 +607,6 @@ pre.mb-diff .ctx::before { content: " "; }
 }
 
 .mb-math-copy {
-  font-family: var(--mb-font-mono);
   font-size: 12px;
   line-height: 1.5;
   padding: 1px 8px;
@@ -623,7 +616,7 @@ pre.mb-diff .ctx::before { content: " "; }
   cursor: pointer;
 }
 
-.mb-math-copy:hover { background: var(--mb-rule); }
+.mb-math-copy:hover { background: var(--mb-ink); color: var(--mb-surface); }
 
 .mb-math-block > .mb-math-copy {
   position: absolute;
