@@ -41,8 +41,8 @@
 
 <div class="mb-summary">
   <ul>
-    <li>背景はオフホワイト <code>#FAF9F6</code>、部品は白地 + 黒罫線 + 角丸で浮かせる</li>
-    <li>自然言語は Ubuntu Sans（日本語は Noto Sans JP に代替）、コードは UbuntuMono Nerd Font で統一する</li>
+    <li>背景はオフホワイト <code>#FAF9F6</code>、部品は白地 + 黒罫線で浮かせ、角丸を使わない</li>
+    <li>自然言語は英字を Ubuntu Sans、日本語を Noto Sans JP、コードは Ubuntu Mono で統一する</li>
     <li>有彩色はリンク青 <code>#2990DA</code> とアクセント赤 <code>#D63A2F</code> の2色のみ。赤は1ページに1箇所まで</li>
   </ul>
 </div>
@@ -89,7 +89,7 @@
 字体は2系統だけです。自然言語（見出し・本文・補助テキスト）は
 <span style="white-space: nowrap">Ubuntu Sans + Noto Sans JP</span>、
 コード・URL・日付などのメタ情報は
-<span style="white-space: nowrap">UbuntuMono Nerd Font（代替: Ubuntu Mono）</span>。
+<span style="white-space: nowrap">Ubuntu Mono</span>。
 欧文と和文が混ざる本文では、欧文グリフが Ubuntu Sans、和文グリフが Noto Sans JP で描画されます。
 </p>
 
@@ -117,7 +117,7 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
 <h2 id="cards">カードとグリッド</h2>
 
 <p>
-カードは白地 + 黒罫線 + 角丸です。中央揃えのタイトル帯を持つ「タイトル付きカード」と、
+カードは白地 + 黒罫線です。中央揃えのタイトル帯を持つ「タイトル付きカード」と、
 左上に小ラベルを置く「ラベル付きカード」の2形があります。並べるときはグリッドで高さを揃えます。
 </p>
 
@@ -169,9 +169,9 @@ h1 と h2 には左端の黒い縦棒が付きます。CSS が自動で付ける
   <div class="mb-figure-frame">
     <svg viewBox="0 0 560 120" width="560">
       <g fill="none" stroke="#111110" stroke-width="2">
-        <rect x="10" y="35" width="130" height="50" rx="10"/>
-        <rect x="215" y="35" width="130" height="50" rx="10"/>
-        <rect x="420" y="35" width="130" height="50" rx="10"/>
+        <rect x="10" y="35" width="130" height="50"/>
+        <rect x="215" y="35" width="130" height="50"/>
+        <rect x="420" y="35" width="130" height="50"/>
         <line x1="140" y1="60" x2="215" y2="60"/>
         <line x1="345" y1="60" x2="420" y2="60"/>
         <path d="M207 55 L215 60 L207 65 Z" fill="#111110" stroke="none"/>
@@ -235,9 +235,9 @@ head から CSS、数式コピー用 JavaScript、MathJax、Highlight.js の順�
     <dt>オフホワイト</dt>
     <dd>純白よりわずかに暖色寄りの背景色。本システムでは #FAF9F6。</dd>
     <dt>カード</dt>
-    <dd>白地・黒罫線・角丸で本文から浮かせた矩形の部品。</dd>
+    <dd>白地・黒罫線で本文から浮かせた矩形の部品。</dd>
     <dt>チップ</dt>
-    <dd>角丸の枠で囲んだ小さなラベル。並列の固有名の列挙に使う。</dd>
+    <dd>黒罫線の枠で囲んだ小さなラベル。並列の固有名の列挙に使う。</dd>
     <dt>等幅フォント</dt>
     <dd>全文字が同じ幅を持つ字体。コード・URL・日付などのメタ情報に使う。</dd>
     <dt>MathJax</dt>
