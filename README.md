@@ -36,7 +36,7 @@ Claude Code では、プラグインマーケットプレイスからインス�
 
 ## Skills間の依存関係
 
-※ A→B := A depends on B
+※ $A \longrightarrow B$ := A depends on B
 
 <!-- dependencies:start -->
 <!-- graph: 80941ef8e15f34b79cb501ac887a4b4e95e77b7506064f3c252da7955f335c60 -->
