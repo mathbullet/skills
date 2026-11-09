@@ -26,7 +26,7 @@ Claude Code では、プラグインマーケットプレイスからインス�
 ## Skills
 
 <!-- skills:start -->
-- [d-cards](plugins/d-cards/skills/d-cards/SKILL.md)：決定を求める問いを1枚ずつ回答する decision card の HTML
+- [d-cards](plugins/d-cards/skills/d-cards/SKILL.md)：意思決定カード
 - [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md)：Common conventions for writing Markdown documents that cite external sources (survey reports, paper explainers, and any deliverable that surfaces facts from outside).
 - [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md)：grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
 - [html](plugins/html/skills/html/SKILL.md)：概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。

@@ -80,7 +80,7 @@
     {
       "name": "d-cards",
       "source": "./plugins/d-cards",
-      "description": "決定を求める問いを1枚ずつ回答する decision card の HTML",
+      "description": "意思決定カード",
       "version": "1.0.0",
       "author": {
         "name": "mathbullet"
