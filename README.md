@@ -34,6 +34,10 @@ Claude Code では、プラグインマーケットプレイスからインス�
 - [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md)：Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document.
 <!-- skills:end -->
 
+## Skills間の依存関係
+
+※ A→B := A depends on B
+
 <!-- dependencies:start -->
 <!-- graph: 80941ef8e15f34b79cb501ac887a4b4e95e77b7506064f3c252da7955f335c60 -->
 <picture>
