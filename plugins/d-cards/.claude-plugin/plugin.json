@@ -1,0 +1,9 @@
+{
+  "name": "d-cards",
+  "description": "意思決定カード",
+  "version": "1.0.0",
+  "author": {
+    "name": "mathbullet"
+  },
+  "dependencies": ["html"]
+}

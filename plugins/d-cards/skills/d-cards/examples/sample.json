@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "themes": [
+    {
+      "id": "auth",
+      "name": "ログイン処理の仕様",
+      "description": "ログイン API がトークンを返す条件を決めます。",
+      "cards": [
+        {
+          "id": "A1",
+          "title": "パスワードが正しければ、ロック中のアカウントにもトークンを返しますか？",
+          "context": [
+            "ログイン API は、パスワードを検証してからトークンを発行します。トークンは、以後の API 呼び出しで本人であることを示す文字列です。",
+            "アカウントのロックは、パスワードを続けて間違えたときに一定時間ログインを止める仕組みです。現在の実装は、ロックの状態を確認せずにトークンを発行します。"
+          ],
+          "figure": {
+            "tikz": "\\node[draw,minimum width=2.6cm] (req) {ログイン要求};\n\\node[draw,minimum width=2.6cm,below=0.8cm of req] (pw) {パスワード検証};\n\\node[draw,dashed,minimum width=2.6cm,below=0.8cm of pw] (lock) {ロック確認};\n\\node[draw,minimum width=2.6cm,below=0.8cm of lock] (tok) {トークン発行};\n\\draw[->] (req) -- (pw);\n\\draw[->] (pw) -- (lock);\n\\draw[->] (lock) -- (tok);\n\\node[right=0.3cm of lock,font=\\small] {未実装};",
+            "caption": "ログイン処理の流れ。破線の段階をどう扱うかが問いの対象である。"
+          },
+          "options": [
+            {
+              "id": "always",
+              "label": "常に返す",
+              "consequence": "ロック中でも、正しいパスワードを知る人はログインできます。ロックは総当たり攻撃を止めなくなります。"
+            },
+            {
+              "id": "reject",
+              "label": "ロック中は拒否する",
+              "consequence": "正しいパスワードでも、ロックが解けるまでログインできません。利用者にはロック中であることを伝える必要があります。"
+            }
+          ],
+          "recommendation": {
+            "option": "reject",
+            "reason": "ロックの目的である総当たり攻撃の抑止を保てるためです。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "token",
+      "name": "トークンの扱い",
+      "description": "発行したトークンの寿命を決めます。",
+      "cards": [
+        {
+          "id": "T1",
+          "title": "トークンの有効期限をどのくらいにしますか？",
+          "context": [
+            "有効期限が切れたトークンは使えなくなり、利用者は再びログインする必要があります。期限が長いほど便利ですが、漏えいしたトークンを悪用できる時間も長くなります。"
+          ],
+          "options": [
+            {
+              "id": "hour",
+              "label": "1時間",
+              "consequence": "漏えい時の影響は小さくなりますが、利用者は頻繁にログインし直します。"
+            },
+            {
+              "id": "day",
+              "label": "24時間",
+              "consequence": "1日に1回程度のログインで済みます。漏えい時は最長1日悪用されます。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
