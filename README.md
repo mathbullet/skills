@@ -20,11 +20,13 @@ Claude Code では、プラグインマーケットプレイスからインス�
 /plugin marketplace add mathbullet/skills
 /plugin install html@skills
 /plugin install grilling-viz@skills
+/plugin install d-cards@skills
 ```
 
 ## Skills
 
 <!-- skills:start -->
+- [d-cards](plugins/d-cards/skills/d-cards/SKILL.md)：決定を求める問いを1枚ずつ回答する decision card の HTML
 - [documenting-with-sources](plugins/documenting-with-sources/skills/documenting-with-sources/SKILL.md)：Common conventions for writing Markdown documents that cite external sources (survey reports, paper explainers, and any deliverable that surfaces facts from outside).
 - [grilling-viz](plugins/grilling-viz/skills/grilling-viz/SKILL.md)：grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
 - [html](plugins/html/skills/html/SKILL.md)：概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。
@@ -35,7 +37,7 @@ Claude Code では、プラグインマーケットプレイスからインス�
 <!-- skills:end -->
 
 <!-- dependencies:start -->
-<!-- graph: 80941ef8e15f34b79cb501ac887a4b4e95e77b7506064f3c252da7955f335c60 -->
+<!-- graph: 0d7538006c2d9ac4707bf80f8b30688de1415f7e005d845d754cffd42ae92ab6 -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/skill-dependencies-dark.svg" />
   <img alt="Skill dependency graph" src="assets/skill-dependencies-light.svg" />
