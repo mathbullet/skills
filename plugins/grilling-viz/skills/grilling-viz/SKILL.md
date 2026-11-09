@@ -2,6 +2,8 @@
 name: grilling-viz
 description: >
   grilling による質問を、選択肢と自由入力でまとめて回答し、コピーできるHTMLにする。
+metadata:
+  requires: "grilling"
 ---
 
 # Grilling Viz

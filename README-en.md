@@ -29,6 +29,14 @@ The skills auto-trigger based on the user's request — there are no slash comma
 - [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md)：Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document.
 <!-- skills:end -->
 
+<!-- dependencies:start -->
+<!-- graph: 6636bd3565f753fd47b581895f40f3c073e74b2247ebc3a11f7d9a3cba662a9f -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skill-dependencies-dark.svg" />
+  <img alt="Skill dependency graph" src="assets/skill-dependencies-light.svg" />
+</picture>
+<!-- dependencies:end -->
+
 <a href="https://www.star-history.com/?repos=mathbullet%2Fskills&type=date&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mathbullet/skills&type=date&theme=dark&legend=top-left" />
