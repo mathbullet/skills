@@ -56,7 +56,6 @@ node scripts/render.mjs cards.json output.html --if-match SHA256
 
 ## 確認
 
-`node --test tests/*.test.mjs` で、データの検証と生成を検査する。
 生成した HTML は、ブラウザーで次を確認する。
 
 - カードの移動
