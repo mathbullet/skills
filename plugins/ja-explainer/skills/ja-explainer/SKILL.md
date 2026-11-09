@@ -1,9 +1,9 @@
 ---
 name: ja-explainer
 description: 論文や記事を日本語で要約・解説する文書の規範
+metadata:
+  requires: "documenting-with-sources writing-quotation"
 ---
-
-documenting-with-sources と writing-quotation の2スキルが必要。
 
 どの粒度で文書化するか（summary、details）が指定されなかった場合は、書き始める前にユーザーに尋ねる。
 

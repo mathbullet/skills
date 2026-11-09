@@ -1,6 +1,8 @@
 ---
 name: html
 description: 概念・仕組み・調査内容を、HTML による視覚的な説明ドキュメントとして作成・編集する。
+metadata:
+  recommends: "ja-explainer japanese-tech-writing cognitive-rhythm-writing"
 ---
 
 # HTML による説明ドキュメント
@@ -12,8 +14,6 @@ description: 概念・仕組み・調査内容を、HTML による視覚的な�
 - `ja-explainer`：日本語の文書を書くときの規範
 - [`japanese-tech-writing`](https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d)：日本語の技術文書、記事、解説文の構成と文章規範
 - [`cognitive-rhythm-writing`](https://gist.github.com/k16shikano/eb2929f13ed19c97188393d297be8432)：読み物としての緩急が必要な長文の文章規範
-
-いずれも推奨スキルであり、`html` の必須依存ではない。
 
 ## 成果物
 

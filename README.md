@@ -34,6 +34,14 @@ Claude Code では、プラグインマーケットプレイスからインス�
 - [writing-quotation](plugins/writing-quotation/skills/writing-quotation/SKILL.md)：Formatting rules for quoting external sources (papers, articles, web pages, prompt templates) inside a Markdown document.
 <!-- skills:end -->
 
+<!-- dependencies:start -->
+<!-- graph: 80941ef8e15f34b79cb501ac887a4b4e95e77b7506064f3c252da7955f335c60 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skill-dependencies-dark.svg" />
+  <img alt="Skill dependency graph" src="assets/skill-dependencies-light.svg" />
+</picture>
+<!-- dependencies:end -->
+
 <a href="https://www.star-history.com/?repos=mathbullet%2Fskills&type=date&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mathbullet/skills&type=date&theme=dark&legend=top-left" />
