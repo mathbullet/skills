@@ -1,6 +1,6 @@
 ---
 name: survey
-description: Investigate a topic across papers, articles, social-media posts, and industry signals, then deliver an indexed Markdown report. Use when the user asks to investigate, survey, gather sources, build an index, collect evidence, round up references, or otherwise wants a thorough cross-source roundup on a specific topic. Depends on documenting-with-sources and writing-quotation.
+description: Investigate a topic across papers, articles, social-media posts, and industry signals, then deliver an indexed Markdown report. Use when the user asks to investigate, survey, gather sources, build an index, collect evidence, round up references, or otherwise wants a thorough cross-source roundup on a specific topic.
 metadata:
   requires: "documenting-with-sources writing-quotation"
 ---

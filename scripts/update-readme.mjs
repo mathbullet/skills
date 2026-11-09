@@ -1,7 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { readFile, writeFile, lstat, mkdir, unlink } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
-import { requires, graphSource, renderSection, sectionHash, renderSvgs, svgPaths } from './dependency-graph.mjs';
+import { dependencies, graphSource, renderSection, sectionHash, renderSvgs, svgPaths } from './dependency-graph.mjs';
 
 const readmes = ['README.md', 'README-en.md'];
 const skillPath = /^plugins\/[^/]+\/skills\/[^/]+\/SKILL\.md$/;
@@ -52,7 +52,7 @@ function metadata(text, path) {
     if (!fields[key]) throw new Error(`${path}: ${key} が空です。`);
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(fields.name)) throw new Error(`${path}: name が不正です。`);
-  return { ...fields, requires: requires(text, path), path };
+  return { ...fields, ...dependencies(text, path), path };
 }
 
 function renderList(skills) {

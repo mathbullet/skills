@@ -30,7 +30,7 @@ The skills auto-trigger based on the user's request — there are no slash comma
 <!-- skills:end -->
 
 <!-- dependencies:start -->
-<!-- graph: 6636bd3565f753fd47b581895f40f3c073e74b2247ebc3a11f7d9a3cba662a9f -->
+<!-- graph: 80941ef8e15f34b79cb501ac887a4b4e95e77b7506064f3c252da7955f335c60 -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/skill-dependencies-dark.svg" />
   <img alt="Skill dependency graph" src="assets/skill-dependencies-light.svg" />
